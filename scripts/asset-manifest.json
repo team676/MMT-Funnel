@@ -1,0 +1,90 @@
+{
+  "brand": {
+    "crown-gold": {
+      "height": 198,
+      "width": 225
+    },
+    "crown-white": {
+      "height": 96,
+      "width": 109
+    },
+    "wordmark-gold": {
+      "height": 128,
+      "width": 372
+    }
+  },
+  "proof": {
+    "alpha-capital-hammad-936-payout": {
+      "height": 829,
+      "width": 1100
+    },
+    "alpha-capital-hammad-phase1": {
+      "height": 829,
+      "width": 1100
+    },
+    "alpha-capital-hammad-phase2": {
+      "height": 829,
+      "width": 1100
+    },
+    "alpha-capital-hammad-verification": {
+      "height": 829,
+      "width": 1100
+    },
+    "apex-salmanul-40000-payment": {
+      "height": 337,
+      "width": 424
+    },
+    "funded-engineer-phase2-pass": {
+      "height": 1100,
+      "width": 791
+    },
+    "fundednext-sharizman-elite-trader": {
+      "height": 812,
+      "width": 1100
+    },
+    "funding-pips-abafae-reward": {
+      "height": 433,
+      "width": 430
+    },
+    "lucid-demetry-1000-payout": {
+      "height": 768,
+      "width": 1100
+    },
+    "lucid-demetry-3000-payout": {
+      "height": 793,
+      "width": 1100
+    },
+    "lucid-payout-approved-email-1000": {
+      "height": 1100,
+      "width": 578
+    },
+    "lucid-pilotjk-19733-payout": {
+      "height": 286,
+      "width": 406
+    },
+    "qt-funded-laurence-100k-pass": {
+      "height": 612,
+      "width": 680
+    },
+    "topstep-juan-funded-certificate": {
+      "height": 826,
+      "width": 1100
+    },
+    "topstep-ridham-funded-certificate": {
+      "height": 848,
+      "width": 1100
+    },
+    "topstep-ridham-payout-email": {
+      "height": 1100,
+      "width": 1100
+    },
+    "tradesyncer-pilotjk-10978-profit": {
+      "height": 616,
+      "width": 1100
+    },
+    "tradesyncer-pilotjk-27022-profit": {
+      "height": 729,
+      "width": 1100
+    }
+  }
+}
