@@ -1,0 +1,19 @@
+{
+  "name": "mmt-funnel",
+  "version": "0.1.0",
+  "private": true,
+  "description": "High-Probability Trading Challenge landing page (static, Cloudflare Workers assets)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/cf.mjs dev",
+    "deploy": "node scripts/cf.mjs deploy",
+    "preview": "node scripts/cf.mjs preview",
+    "assets": "python3 scripts/build_assets.py"
+  },
+  "devDependencies": {
+    "wrangler": "^4.148.0"
+  }
+}
