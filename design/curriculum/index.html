@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum · 5 Versions</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/hpt-favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070A;--bg2:#070A10;--panel:#0B0F14;--gold:#FFC72C;--gold2:#FFE7A3;--blue:#8CD2FF;
+  --cta:#57B6F2;--t1:#fff;--t2:#C9D3DC;--t3:#A9B4BF;--t4:#8E9AA6;--line:rgba(255,255,255,.08);--red:#F2777B;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--sans:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--t1);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+h3,p{margin:0}
+.gold{color:var(--gold)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- review chrome (not part of the page) ---------- */
+.rv{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:18px;height:56px;padding:0 20px;background:rgba(5,7,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.rv__t{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--t4);white-space:nowrap}
+.rv__nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.rv__nav::-webkit-scrollbar{display:none}
+.rv__nav a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:#fff;text-decoration:none;font:600 13px/1 var(--sans);white-space:nowrap}
+.rv__nav a b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#05070A;font:800 11px/1 var(--sans)}
+.rv__nav a:hover{border-color:rgba(255,199,44,.6)}
+.rv__back{margin-left:auto;color:var(--t4);font:600 13px/1 var(--sans);text-decoration:none;white-space:nowrap}
+.rv__back:hover{color:#fff}
+.tag{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;max-width:1280px;margin:0 auto;padding:0 24px}
+.tag span{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(255,199,44,.08);border:1px solid rgba(255,199,44,.3);font:700 13px/1 var(--sans);color:#fff}
+.tag span b{display:inline-grid;place-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--gold);color:#05070A;font:800 11px/1 var(--sans);letter-spacing:.04em}
+.tag em{font:500 13px/1.3 var(--sans);font-style:normal;color:var(--t4)}
+
+/* ---------- shared section pieces ---------- */
+.v{position:relative;padding:clamp(56px,7vw,96px) 0 clamp(72px,8vw,112px);border-top:1px solid var(--line);overflow:clip}
+.v:nth-of-type(even){background:var(--bg2)}
+.v::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.head{max-width:980px;margin:clamp(28px,4vw,44px) auto clamp(36px,5vw,64px);padding:0 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.h2{margin:0;font:800 clamp(30px,3.6vw,50px)/1.08 var(--display);letter-spacing:-.028em;text-wrap:balance}
+.lede{max-width:760px;font:400 clamp(16px,1.35vw,18px)/1.6 var(--sans);color:var(--t2);text-wrap:pretty}
+.cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:clamp(40px,5vw,64px);padding:0 24px}
+.btn{position:relative;overflow:hidden;width:min(480px,100%);display:flex;align-items:center;justify-content:center;background:var(--cta);color:#03101C;font:800 clamp(18px,1.5vw,21px)/1 var(--display);letter-spacing:.045em;text-transform:uppercase;text-decoration:none;padding:21px 32px;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 3px 0 #2C82BD,0 18px 40px -14px rgba(87,182,242,.75);transition:background .2s}
+.btn:hover{background:#6CC1F5}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));transform:translateX(-150%) skewX(-18deg);animation:shine 6s ease-in-out 2s infinite}
+.cta p{font:400 15px/1 var(--sans);color:#9AA6B2}
+.take{font:600 16px/1.45 var(--sans);color:var(--gold2)}
+.desc{font:400 15px/1.6 var(--sans);color:var(--t3);text-wrap:pretty}
+.meta{font:700 11.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--t4)}
+.ck{display:inline-grid;place-items:center;flex:none;border-radius:50%}
+.ck svg{width:62%;height:62%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+details.more summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;font:600 13px/1 var(--sans);color:var(--t4)}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font:600 15px/1 var(--sans);color:var(--gold)}
+details.more[open] summary::after{content:"–"}
+details.more summary:hover{color:#fff}
+details.more .desc{margin-top:10px}
+
+@keyframes shine{0%{transform:translateX(-150%) skewX(-18deg)}22%,100%{transform:translateX(400%) skewX(-18deg)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,199,44,.6)}70%{box-shadow:0 0 0 8px rgba(255,199,44,0)}}
+@keyframes sheen{0%,55%{transform:translateX(-120%) rotate(18deg)}100%{transform:translateX(320%) rotate(18deg)}}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+
+/* =========================================================
+   V1 · THE BUSINESS CARD
+   ========================================================= */
+.bc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,6vw,96px);align-items:start}
+.bc__aside{align-self:stretch}
+.bc__sticky{position:sticky;top:calc(50vh - 170px);display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:12vh}
+.card{position:relative;width:min(100%,500px);aspect-ratio:1.75;border-radius:18px;padding:clamp(20px,2.2vw,30px) clamp(22px,2.4vw,32px);overflow:hidden;
+  background:radial-gradient(130% 150% at 0% 0%,#1B2029 0%,#0D1016 52%,#07090D 100%);border:1px solid rgba(255,199,44,.38);
+  box-shadow:0 50px 90px -40px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.06),0 0 120px -40px rgba(255,199,44,.45);transform:rotate(-2deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card.is-done{transform:rotate(0deg) scale(1.02)}
+.card__sheen{position:absolute;top:-40%;left:0;width:30%;height:180%;background:linear-gradient(90deg,rgba(255,231,163,0),rgba(255,231,163,.10),rgba(255,231,163,0));animation:sheen 7s ease-in-out infinite;pointer-events:none}
+.card__top{display:flex;align-items:center;gap:12px;padding-bottom:clamp(10px,1.4vw,16px);border-bottom:1px solid rgba(255,199,44,.18)}
+.card__top img{height:26px;width:auto}
+.card__top strong{font:800 clamp(10px,.9vw,12px)/1 var(--sans);letter-spacing:.22em;color:var(--gold)}
+.card__top span{margin-left:auto;font:700 10px/1 var(--sans);letter-spacing:.18em;color:var(--t4)}
+.card__lines{list-style:none;margin:clamp(10px,1.4vw,16px) 0 0;padding:0;display:flex;flex-direction:column;gap:clamp(6px,.75vw,10px)}
+.card__lines li{display:flex;align-items:center;gap:12px;min-height:22px}
+.card__lines .ck{width:20px;height:20px;border:1.5px solid rgba(255,255,255,.18);color:transparent;transition:background .4s,border-color .4s,color .4s}
+.card__txt{position:relative;flex:1;font:600 clamp(13px,1.15vw,15.5px)/1.2 var(--sans);color:#fff;white-space:nowrap}
+.card__txt span{display:inline-block;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.6,0,.2,1)}
+.card__txt::before{content:"";position:absolute;left:0;right:0;bottom:2px;border-bottom:1px dashed rgba(255,255,255,.14);transition:opacity .4s}
+.card__lines li.on .ck{background:var(--gold);border-color:var(--gold);color:#05070A}
+.card__lines li.on .card__txt span{clip-path:inset(0 0 0 0)}
+.card__lines li.on .card__txt::before{opacity:0}
+.card__stamp{position:absolute;right:clamp(16px,2vw,26px);bottom:clamp(14px,1.8vw,22px);padding:7px 11px;border:2px solid var(--gold);border-radius:6px;color:var(--gold);font:800 clamp(10px,.95vw,12.5px)/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transform:rotate(-9deg) scale(1.6);opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s;background:rgba(5,7,10,.6)}
+.card.is-done .card__stamp{opacity:1;transform:rotate(-9deg) scale(1)}
+.bc__progress{display:flex;align-items:center;gap:14px}
+.bc__progress .meta{min-width:112px;text-align:right}
+.bc__bars{display:flex;gap:6px}
+.bc__bars i{width:26px;height:4px;border-radius:2px;background:rgba(255,255,255,.14);transition:background .4s}
+.bc__bars i.on{background:var(--gold)}
+.bc__nights{display:flex;flex-direction:column}
+.bc__night{min-height:62vh;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:4vh 0;opacity:.32;transition:opacity .5s}
+.bc__night.is-active{opacity:1}
+.bc__date{display:flex;align-items:center;gap:14px}
+.bc__num{font:800 64px/.8 var(--display);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,199,44,.7)}
+.bc__night.is-active .bc__num{color:var(--gold);-webkit-text-stroke:0}
+.bc__night h3{font:800 clamp(24px,2.3vw,32px)/1.14 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.bc__night .take{font-size:17px}
+.bc__night .desc{max-width:560px}
+
+/* =========================================================
+   V2 · THE CHART TELLS THE STORY
+   ========================================================= */
+.cs{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);grid-template-areas:"chart detail" "tabs tabs";gap:22px clamp(24px,3vw,44px);align-items:stretch}
+.cs__chart{grid-area:chart;position:relative;border-radius:20px;background:linear-gradient(180deg,#0D1219,#070A10);border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 100px -40px rgba(0,0,0,.95),0 0 90px -30px rgba(255,199,44,.22);overflow:hidden}
+.cs__chart svg{display:block;width:100%;height:auto}
+.cs__chart svg text{font-family:var(--sans)}
+.lyr{opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.lyr.on{opacity:1;transform:none}
+.cs__candles{transition:opacity .6s}
+.cs__detail{grid-area:detail;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:8px 0}
+.cs__detail h3{font:800 clamp(24px,2.2vw,32px)/1.14 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.cs__added{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;margin-top:4px;padding:9px 14px;border-radius:999px;background:rgba(255,199,44,.1);border:1px solid rgba(255,199,44,.32);font:600 13px/1 var(--sans);color:#fff}
+.cs__added .ck{width:18px;height:18px;background:var(--gold);color:#05070A}
+.cs__swap{display:flex;flex-direction:column;gap:14px;animation:swapIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes swapIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cs__tabs{grid-area:tabs;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.cs__tab{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 16px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#fff;text-align:left;cursor:pointer;font:inherit;transition:border-color .3s,background .3s}
+.cs__tab:hover{border-color:rgba(255,199,44,.4)}
+.cs__tab[aria-selected="true"]{border-color:rgba(255,199,44,.55);background:rgba(255,199,44,.07)}
+.cs__tab .meta{color:var(--t4)}
+.cs__tab[aria-selected="true"] .meta{color:var(--gold)}
+.cs__tab strong{font:800 16px/1.2 var(--display);letter-spacing:-.01em}
+.cs__tab i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0)}
+.cs__tab[aria-selected="true"] i{transform:scaleX(1)}
+.is-playing .cs__tab[aria-selected="true"] i{animation:fill var(--dur,7s) linear forwards}
+.is-paused .cs__tab[aria-selected="true"] i{animation-play-state:paused}
+
+/* =========================================================
+   V3 · 15 SETUPS → 1 TRADE
+   ========================================================= */
+.ff__viz{position:relative;aspect-ratio:1000/300;margin:0 auto}
+.ff__band{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ff__ends{position:absolute;top:-6px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
+.ff__ends span{font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--t4)}
+.ff__ends span:last-child{color:var(--gold)}
+.ff__stages{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.ff__stage{position:relative;display:flex;align-items:center;justify-content:center}
+.ff__box{position:relative;width:76%;transition:transform .5s}
+.ff__stage.is-active .ff__box{transform:scale(1.06)}
+.chip{position:absolute;transform:translate(-50%,-50%);padding:3px 6px;border-radius:5px;font:700 9.5px/1 var(--sans);letter-spacing:.04em;white-space:nowrap;border:1px solid rgba(140,210,255,.35);background:rgba(140,210,255,.1);color:#CFE9FF;transition:opacity .4s}
+.chip.dim{opacity:.16}
+.chip.pass{border-color:rgba(255,199,44,.7);background:rgba(255,199,44,.14);color:var(--gold2)}
+.chip.ap{padding:9px 14px;font:800 15px/1 var(--sans);border-color:var(--gold);background:var(--gold);color:#05070A;box-shadow:0 0 30px rgba(255,199,44,.6)}
+.ff__tick{position:absolute;left:50%;top:50%;width:min(96px,110%);height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 0 18px rgba(255,199,44,.45))}
+.ff__cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);margin-top:28px}
+.ff__col{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid rgba(255,255,255,.1);transition:border-color .4s}
+.ff__col.is-active{border-color:var(--gold)}
+.ff__col h3{font:800 clamp(17px,1.45vw,20px)/1.2 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.ff__col .take{font-size:15px}
+.ff__mini{display:none}
+.ff__col.final{border-color:var(--gold)}
+
+/* =========================================================
+   V4 · THE WEEK AHEAD (horizontal accordion)
+   ========================================================= */
+.wk{display:flex;gap:12px;height:clamp(460px,46vw,540px)}
+.wk__p{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-radius:20px;padding:26px 24px;cursor:pointer;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));transition:flex-grow .7s cubic-bezier(.2,.7,.2,1),border-color .4s,background .4s;outline-offset:4px}
+.wk__p:hover{border-color:rgba(255,199,44,.35)}
+.wk__p[aria-expanded="true"]{flex-grow:3.6;cursor:default;border-color:rgba(255,199,44,.5);background:radial-gradient(90% 70% at 100% 0%,rgba(255,199,44,.14),rgba(255,199,44,0) 70%),linear-gradient(180deg,rgba(255,199,44,.06),rgba(255,255,255,.01))}
+.wk__head{display:flex;flex-direction:column;gap:6px}
+.wk__wd{font:800 clamp(30px,3vw,44px)/.9 var(--display);letter-spacing:-.03em}
+.wk__dt{font:700 12px/1 var(--sans);letter-spacing:.18em;color:var(--gold)}
+.wk__ghost{position:absolute;right:-8px;top:-46px;font:800 220px/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(255,199,44,.14);pointer-events:none;transition:-webkit-text-stroke-color .4s}
+.wk__p[aria-expanded="true"] .wk__ghost{-webkit-text-stroke-color:rgba(255,199,44,.3)}
+.wk__mini{position:absolute;left:24px;right:20px;bottom:26px;display:flex;flex-direction:column;gap:8px;transition:opacity .3s}
+.wk__mini strong{font:800 18px/1.15 var(--display);letter-spacing:-.01em;text-wrap:balance}
+.wk__p[aria-expanded="true"] .wk__mini{opacity:0;pointer-events:none}
+.wk__body{position:absolute;left:28px;bottom:30px;width:min(520px,calc(100% - 56px));min-width:340px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .3s,transform .4s;pointer-events:none}
+.wk__p[aria-expanded="true"] .wk__body{opacity:1;transform:none;transition-delay:.35s;pointer-events:auto}
+.wk__body h3{font:800 clamp(24px,2.2vw,32px)/1.12 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.ev{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font:600 13px/1 var(--sans);white-space:nowrap}
+.ev i{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 1.6s ease-out infinite}
+.wk__bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.06);opacity:0}
+.wk__bar i{display:block;height:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0)}
+.is-playing .wk__p[aria-expanded="true"] .wk__bar{opacity:1}
+.is-playing .wk__p[aria-expanded="true"] .wk__bar i{animation:fill var(--dur,6.5s) linear forwards}
+.is-paused .wk__p[aria-expanded="true"] .wk__bar i{animation-play-state:paused}
+.wk__chev{display:none}
+
+/* =========================================================
+   V5 · THE RAIL
+   ========================================================= */
+.rl{position:relative}
+.rl__track{position:absolute;left:10%;right:10%;top:15px;height:2px;background:rgba(255,255,255,.1);border-radius:2px}
+.rl__fill{position:absolute;inset:0;background:linear-gradient(90deg,var(--blue),var(--gold));transform-origin:0 50%;transform:scaleX(var(--p,0));border-radius:2px;box-shadow:0 0 18px rgba(255,199,44,.5)}
+.rl__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+.rl__item{display:flex;flex-direction:column;align-items:center;gap:22px}
+.rl__node{position:relative;z-index:1;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#0B0F14;border:2px solid rgba(255,255,255,.18);font:800 12px/1 var(--sans);color:var(--t4);transition:all .4s}
+.rl__item.on .rl__node{background:var(--gold);border-color:var(--gold);color:#05070A;box-shadow:0 0 0 6px rgba(255,199,44,.15)}
+.rl__card{position:relative;align-self:stretch;display:flex;flex-direction:column;gap:14px;padding:22px 20px 24px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.025);opacity:.45;transform:translateY(16px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1),border-color .6s;height:100%}
+.rl__item.on .rl__card{opacity:1;transform:none}
+.cal{display:flex;align-items:stretch;align-self:flex-start;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.cal__wd{display:grid;place-items:center;padding:0 10px;background:var(--gold);color:#05070A;font:800 11px/1 var(--sans);letter-spacing:.14em;writing-mode:vertical-rl;transform:rotate(180deg)}
+.cal__n{display:flex;flex-direction:column;justify-content:center;padding:8px 14px;font:800 34px/.9 var(--display);letter-spacing:-.03em;background:rgba(255,255,255,.04)}
+.cal__n small{font:700 10.5px/1 var(--sans);letter-spacing:.16em;color:var(--t4);margin-top:6px}
+.rl__card h3{font:800 clamp(17px,1.4vw,20px)/1.2 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.rl__card .take{font-size:15px}
+.rl__card .take::before{content:"→ ";color:var(--gold)}
+.rl__item.is-final .rl__card{border-color:rgba(255,199,44,.45);background:linear-gradient(170deg,rgba(255,199,44,.12),rgba(255,199,44,.02));box-shadow:0 0 80px -30px rgba(255,199,44,.5)}
+.rl__badge{position:absolute;top:-12px;right:16px;white-space:nowrap;padding:7px 11px;border-radius:999px;background:var(--gold);color:#05070A;font:800 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.rl__card details{margin-top:auto}
+
+/* ---------- tablet / phone ---------- */
+@media (max-width:980px){
+  .rv__t{display:none}
+  .bc{grid-template-columns:1fr;gap:0}
+  .bc__aside{position:sticky;top:56px;z-index:5;margin:0 -24px;padding:12px 24px 26px;background:linear-gradient(180deg,var(--bg) 88%,rgba(5,7,10,0))}
+  .v:nth-of-type(even) .bc__aside{background:linear-gradient(180deg,var(--bg2) 88%,rgba(7,10,16,0))}
+  .bc__sticky{position:static;padding-top:0;gap:12px}
+  .bc__progress{display:none}
+  .card{transform:none;width:min(100%,420px);aspect-ratio:auto;padding:16px 18px 46px}
+  .card__lines{gap:7px}
+  .card__txt{font-size:13.5px}
+  .card__stamp{right:14px;bottom:12px;font-size:10px}
+  .card.is-done{transform:none}
+  .bc__night{min-height:auto;padding:40px 0;opacity:.45}
+  .bc__num{font-size:48px}
+  .cs{grid-template-columns:1fr;grid-template-areas:"chart" "tabs" "detail"}
+  .cs__tabs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px;scrollbar-width:none}
+  .cs__tabs::-webkit-scrollbar{display:none}
+  .cs__tab{flex:0 0 46%;scroll-snap-align:start}
+  .ff__viz{display:none}
+  .ff__cols{grid-template-columns:1fr;gap:0;margin-top:0}
+  .ff__col{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:18px;row-gap:8px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
+  .ff__col>*:not(.ff__mini){grid-column:2}
+  .ff__mini .chip{font-size:7.5px;padding:2px 4px;border-radius:4px}
+  .ff__mini .chip.ap{font-size:12px;padding:7px 10px}
+  .ff__mini{overflow:hidden;display:block;grid-column:1;grid-row:1/span 5;position:relative;width:96px;height:96px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .ff__col.is-active,.ff__col.final{border-color:var(--line)}
+  .ff__col.final .ff__mini{border-color:rgba(255,199,44,.5)}
+  .wk{flex-direction:column;height:auto;gap:10px}
+  .wk__p{padding:18px 20px;flex:none}
+  .wk__p[aria-expanded="true"]{flex:none}
+  .wk__head{flex-direction:row;align-items:baseline;gap:12px}
+  .wk__wd{font-size:26px}
+  .wk__ghost{display:none}
+  .wk__mini{position:static;flex-direction:row;align-items:baseline;gap:10px;margin-top:6px}
+  .wk__mini .meta{display:none}
+  .wk__mini strong{font-size:17px}
+  .wk__p[aria-expanded="true"] .wk__mini{display:none}
+  .wk__body{position:static;width:auto;min-width:0;display:none;margin-top:16px;opacity:1;transform:none}
+  .wk__p[aria-expanded="true"] .wk__body{display:flex}
+  .wk__chev{display:block;position:absolute;right:18px;top:22px;width:22px;height:22px;fill:none;stroke:var(--gold);stroke-width:2;transition:transform .3s}
+  .wk__p[aria-expanded="true"] .wk__chev{transform:rotate(180deg)}
+  .rl__track{left:15px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .rl__fill{transform-origin:50% 0;transform:scaleY(var(--p,0));background:linear-gradient(180deg,var(--blue),var(--gold))}
+  .rl__list{grid-template-columns:1fr;gap:18px}
+  .rl__item{flex-direction:row;align-items:flex-start;gap:16px}
+  .rl__node{flex:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<nav class="rv" aria-label="Versions">
+  <span class="rv__t">Curriculum · 5 versions</span>
+  <div class="rv__nav">
+    <a href="#v1"><b>1</b>Business Card</a>
+    <a href="#v2"><b>2</b>Chart Story</a>
+    <a href="#v3"><b>3</b>15 → 1</a>
+    <a href="#v4"><b>4</b>Week Ahead</a>
+    <a href="#v5"><b>5</b>The Rail</a>
+  </div>
+  <a class="rv__back" href="../">Full page ↗</a>
+</nav>
+
+<section class="v" id="v1" aria-labelledby="h-v1">
+  <div class="tag"><span><b>V1</b>The Business Card</span><em>Scroll: each night writes one line onto your plan.</em></div>
+  <header class="head" data-head="h-v1"></header>
+  <div class="wrap"><div class="bc" data-bc></div></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="v2" aria-labelledby="h-v2">
+  <div class="tag"><span><b>V2</b>The Chart Tells the Story</span><em>Each night adds a layer to the same chart. Click a night or let it play.</em></div>
+  <header class="head" data-head="h-v2"></header>
+  <div class="wrap"><div class="cs" data-cs></div></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="v3" aria-labelledby="h-v3">
+  <div class="tag"><span><b>V3</b>15 Setups → 1 Trade</span><em>The week as a filter: every night cuts the noise down to your one A+ trade.</em></div>
+  <header class="head" data-head="h-v3"></header>
+  <div class="wrap"><div class="ff" data-ff></div></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="v4" aria-labelledby="h-v4">
+  <div class="tag"><span><b>V4</b>The Week Ahead</span><em>Like a calendar invite. Each night opens up; it plays on its own until you click.</em></div>
+  <header class="head" data-head="h-v4"></header>
+  <div class="wrap"><div class="wk" data-wk></div></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="v5" aria-labelledby="h-v5">
+  <div class="tag"><span><b>V5</b>The Rail</span><em>Monday to Friday in one line; the rail fills as you scroll. Friday is the payoff.</em></div>
+  <header class="head" data-head="h-v5"></header>
+  <div class="wrap"><div class="rl" data-rl></div></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<script>
+(() => {
+  'use strict';
+  const NIGHTS = [
+    { wd: 'MON', mo: 'NOV', dn: 2, day: 'Mon, Nov 2', short: 'The DRT Levels', plan: 'Levels: 25 · 50 · 75',
+      title: 'The DRT Levels: Spot the Real ICT Setups in Under a Minute',
+      take: 'Clear the dead setups off your chart in seconds.',
+      desc: 'Night one you get the backbone of DRT: the 25, 50 and 75 levels, and the sessions that matter. You’ll learn to see in seconds whether an order block or FVG is sitting in the right place at the right time, and you’ll be clearing the dead setups off your chart before you go to bed.' },
+    { wd: 'TUE', mo: 'NOV', dn: 3, day: 'Tue, Nov 3', short: 'The 3 DRT Checks', plan: '3 checks before every trade',
+      title: 'The 3 DRT Checks for a Winning Trade',
+      take: 'All three line up, you take it. One missing, you wait.',
+      desc: 'The three conditions DRT runs before every trade: higher time frame bias, a valid dealing range, and a confirmed change in state of delivery. All three line up, you take it. One missing, you wait. You’ll also get my DRT rule for a missed entry, so you never chase price again.' },
+    { wd: 'WED', mo: 'NOV', dn: 4, day: 'Wed, Nov 4', short: 'The Morning Routine', plan: 'My one trade, before the open',
+      title: 'The DRT Morning Routine: Know Your One Trade Before the Open',
+      take: 'Sit down knowing your one trade before the market opens.',
+      desc: 'My exact pre open routine, start to finish: read where price is reaching, grade the dealing range, rank every setup by real reward, and sit down knowing your one DRT trade before the market opens. This is the night you go from fifteen trades a week to one trade a session.' },
+    { wd: 'THU', mo: 'NOV', dn: 5, day: 'Thu, Nov 5', short: 'Trade It Live', plan: 'Invalidation set before I click',
+      title: 'Watch Me Trade DRT Live, Candle by Candle',
+      take: 'Every decision explained live, on real charts. The night DRT clicks.',
+      desc: 'I run the full DRT filter on real charts in front of you and explain every decision as it happens: what qualifies, what makes me sit on my hands, and the exact invalidation that tells me I’m wrong before it costs a penny. This is the night DRT clicks.' },
+    { wd: 'FRI', mo: 'NOV', dn: 6, day: 'Fri, Nov 6', short: 'Your DRT Plan', plan: 'My sessions · pairs · journal',
+      title: 'Your Own DRT Trading Plan, Built Live, With Me',
+      take: 'Leave with your plan written down, and run it Monday morning.',
+      desc: 'We build your DRT plan together around your life: the sessions you can trade, the pairs and style that suit you, and the journaling routine that turns your own data into confidence. You leave with it written down, simple enough to fit on the back of a business card, and you run it Monday morning.' }
+  ];
+  const TIME = '7 PM EST';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const pad = n => String(n).padStart(2, '0');
+
+  // Shared heading + CTA (copy from the page, verbatim).
+  $$('[data-head]').forEach(h => {
+    h.innerHTML = `<h2 class="h2" id="${h.dataset.head}">Here’s Everything We’ll Cover In The <span class="gold">5 Day Challenge</span></h2>
+      <p class="lede">Sixty minutes a night, live on Zoom, ${TIME}. Each night you get one piece of the DRT process, and by Friday you’re gonna be running the whole thing on your own charts.</p>`;
+  });
+  $$('[data-cta]').forEach(c => {
+    c.innerHTML = '<a class="btn" href="#">Join the 5 Day Challenge</a><p>Sixty minutes a night.</p>';
+  });
+
+  // Seeded PRNG so every visual is identical on every load.
+  function rng(seed) {
+    let a = seed >>> 0;
+    return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+
+  // Runs `step` every `ms` while the element is on screen; pauses on hover/focus; stops for good on user choice.
+  function autoplay(root, count, ms, show) {
+    let i = 0, timer = 0, visible = false, held = false, stopped = reduce;
+    root.style.setProperty('--dur', ms + 'ms');
+    const restartBar = () => { root.classList.remove('is-playing'); void root.offsetWidth; if (!stopped) root.classList.add('is-playing'); };
+    const tick = () => { i = (i + 1) % count; show(i); restartBar(); schedule(); };
+    const schedule = () => { clearTimeout(timer); if (!stopped && visible && !held) timer = setTimeout(tick, ms); };
+    const io = new IntersectionObserver(es => { visible = es[0].isIntersecting; root.classList.toggle('is-paused', !visible || held); if (visible && !stopped) restartBar(); schedule(); }, { threshold: .35 });
+    io.observe(root);
+    root.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { held = true; root.classList.add('is-paused'); clearTimeout(timer); } });
+    root.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { held = false; root.classList.remove('is-paused'); restartBar(); schedule(); } });
+    return {
+      set(n) { i = n; },
+      stop() { stopped = true; clearTimeout(timer); root.classList.remove('is-playing', 'is-paused'); }
+    };
+  }
+
+  /* ---------------- V1 · Business Card ---------------- */
+  (function businessCard() {
+    const root = $('[data-bc]');
+    root.innerHTML = `
+      <div class="bc__aside"><div class="bc__sticky">
+        <div class="card" data-card>
+          <div class="card__sheen"></div>
+          <div class="card__top"><img src="../assets/hpt-crown-gold-h.png" alt=""><strong>MY DRT TRADING PLAN</strong><span>MON–FRI</span></div>
+          <ol class="card__lines">${NIGHTS.map(n => `<li><span class="ck">${CHECK}</span><span class="card__txt"><span>${n.plan}</span></span></li>`).join('')}</ol>
+          <div class="card__stamp">Ready for Monday</div>
+        </div>
+        <div class="bc__progress"><span class="meta" data-count>Night 0 of 5</span><span class="bc__bars">${NIGHTS.map(() => '<i></i>').join('')}</span></div>
+      </div></div>
+      <div class="bc__nights">${NIGHTS.map((n, i) => `
+        <article class="bc__night" data-night="${i}">
+          <div class="bc__date"><span class="bc__num">${pad(i + 1)}</span><span class="meta">${n.day} · ${TIME}</span></div>
+          <h3>${n.title}</h3>
+          <p class="take">${n.take}</p>
+          <p class="desc">${n.desc}</p>
+        </article>`).join('')}</div>`;
+    const card = $('[data-card]', root), lines = $$('.card__lines li', root), bars = $$('.bc__bars i', root), count = $('[data-count]', root), nights = $$('.bc__night', root);
+    const set = a => {
+      lines.forEach((l, i) => l.classList.toggle('on', i <= a));
+      bars.forEach((b, i) => b.classList.toggle('on', i <= a));
+      nights.forEach((n, i) => n.classList.toggle('is-active', i === a));
+      card.classList.toggle('is-done', a === NIGHTS.length - 1);
+      count.textContent = `Night ${a + 1 > 0 ? a + 1 : 0} of 5`;
+    };
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) set(+e.target.dataset.night); }), { rootMargin: '-45% 0px -45% 0px' });
+    nights.forEach(n => io.observe(n));
+    set(-1);
+  })();
+
+  /* ---------------- V2 · Chart Story ---------------- */
+  (function chartStory() {
+    const root = $('[data-cs]');
+    const W = 960, H = 440, PL = 26, PR = 70, PT = 40, PB = 26, N = 48;
+    const r = rng(11);
+    const ctrl = [[0, 58], [5, 67], [11, 44], [15, 27], [19, 50], [24, 46], [28, 38], [31, 33], [35, 52], [40, 66], [44, 76], [48, 86]];
+    const at = i => { for (let k = 0; k < ctrl.length - 1; k++) { const [a, va] = ctrl[k], [b, vb] = ctrl[k + 1]; if (i >= a && i <= b) { const t = (i - a) / (b - a), s = t * t * (3 - 2 * t); return va + (vb - va) * s; } } return ctrl[ctrl.length - 1][1]; };
+    const v = []; for (let i = 0; i <= N; i++) v.push(at(i) + (r() - .5) * 5.5);
+    const cs = []; for (let i = 0; i < N; i++) { const o = v[i], c = v[i + 1]; cs.push({ o, c, hi: Math.max(o, c) + .6 + r() * 2.8, lo: Math.min(o, c) - .6 - r() * 2.8 }); }
+    let lo = Infinity, hi = -Infinity; cs.forEach(k => { lo = Math.min(lo, k.lo); hi = Math.max(hi, k.hi); });
+    const span = hi - lo, cw = (W - PL - PR) / N;
+    const Y = x => PT + (1 - (x - lo) / span) * (H - PT - PB), X = i => PL + (i + .5) * cw;
+    const argmin = (a, b) => { let m = a; for (let i = a; i <= b; i++) if (cs[i].lo < cs[m].lo) m = i; return m; };
+    const argmax = (a, b) => { let m = a; for (let i = a; i <= b; i++) if (cs[i].hi > cs[m].hi) m = i; return m; };
+    const entry = argmin(27, 34), exit = argmax(41, 47), open = entry - 1;
+    let shift = entry + 3; { const ref = Math.max(...cs.slice(entry - 4, entry).map(k => k.hi)); for (let i = entry + 1; i < entry + 8; i++) if (cs[i].c > ref) { shift = i; break; } }
+    const lv = p => lo + span * p;
+    const t = (x, y, s, o = {}) => `<text x="${x}" y="${y}" stroke="#090C11" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke" fill="${o.f || 'rgba(255,255,255,.4)'}" font-size="${o.fs || 11}" font-weight="${o.fw || 700}" letter-spacing="${o.ls || '.12em'}" text-anchor="${o.a || 'start'}">${s}</text>`;
+    const candles = cs.map((k, i) => { const up = k.c >= k.o, col = up ? '255,199,44' : '140,210,255', top = Y(Math.max(k.o, k.c)), bot = Y(Math.min(k.o, k.c)); return `<rect x="${(X(i) - .7).toFixed(1)}" y="${Y(k.hi).toFixed(1)}" width="1.4" height="${(Y(k.lo) - Y(k.hi)).toFixed(1)}" fill="rgba(${col},.85)"/><rect x="${(X(i) - cw * .32).toFixed(1)}" y="${top.toFixed(1)}" width="${(cw * .64).toFixed(1)}" height="${Math.max(2, bot - top).toFixed(1)}" rx="1" fill="rgba(${col},.9)"/>`; }).join('');
+    const grid = ['MON', 'TUE', 'WED', 'THU', 'FRI'].map((d, i) => { const x = PL + i * (W - PL - PR) / 5; return (i ? `<line x1="${x}" x2="${x}" y1="${PT - 14}" y2="${H - PB}" stroke="rgba(255,255,255,.06)"/>` : '') + t(x + (W - PL - PR) / 10, 22, d, { a: 'middle', fs: 10, f: 'rgba(255,255,255,.4)' }); }).join('');
+    const xr = W - PR;
+    const L1 = `<rect x="${PL}" y="${Y(lv(.75))}" width="${xr - PL}" height="${Y(lv(.5)) - Y(lv(.75))}" fill="rgba(140,210,255,.05)"/>
+      <rect x="${PL}" y="${Y(lv(.5))}" width="${xr - PL}" height="${Y(lv(.25)) - Y(lv(.5))}" fill="rgba(255,199,44,.06)"/>
+      ${[.25, .5, .75].map(p => `<line x1="${PL}" x2="${xr + 6}" y1="${Y(lv(p))}" y2="${Y(lv(p))}" stroke="rgba(255,199,44,.6)" stroke-dasharray="4 6"/>` + t(xr + 14, Y(lv(p)) + 4, Math.round(p * 100), { f: '#FFC72C', fs: 13, fw: 800, ls: 0 })).join('')}
+      ${t(PL + 10, Y(lv(.75)) + 16, 'PREMIUM', { fs: 10 })}${t(PL + 10, Y(lv(.5)) + 16, 'DISCOUNT', { fs: 10 })}`;
+    const badge = (x, label) => { const w = label.length * 7.2 + 34; return `<g transform="translate(${x},${PT - 2})"><rect width="${w}" height="24" rx="12" fill="rgba(5,7,10,.85)" stroke="rgba(255,199,44,.55)"/><circle cx="13" cy="12" r="7" fill="#FFC72C"/><path d="M9.6 12.2l2.2 2.2 4-4.6" fill="none" stroke="#05070A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>${t(26, 16, label, { f: '#fff', fs: 10.5, ls: '.06em' })}</g>`; };
+    const sk = cs[shift], sy = Y((sk.o + sk.c) / 2);
+    const L2 = badge(PL + 4, 'HTF BIAS') + badge(PL + 104, 'VALID RANGE') + badge(PL + 224, 'SHIFT CONFIRMED') +
+      `<circle cx="${X(shift)}" cy="${sy}" r="17" fill="none" stroke="#FFC72C" stroke-width="1.6"/>` + t(X(shift), sy - 24, 'SHIFT', { a: 'middle', f: '#FFC72C', fs: 10 });
+    const ox = X(open) + cw / 2, ey = Y(cs[entry].lo);
+    const L3 = `<defs><radialGradient id="g3"><stop offset="0" stop-color="rgba(255,199,44,.55)"/><stop offset="1" stop-color="rgba(255,199,44,0)"/></radialGradient></defs>
+      <line x1="${ox}" x2="${ox}" y1="${PT + 30}" y2="${H - PB}" stroke="#FFC72C" stroke-opacity=".75" stroke-dasharray="3 5"/>${t(ox, PT + 46, 'NY OPEN', { a: 'middle', f: '#FFC72C', fs: 10 })}
+      <circle cx="${X(entry)}" cy="${ey}" r="34" fill="url(#g3)"/><circle cx="${X(entry)}" cy="${ey}" r="5" fill="#FFE7A3"/>
+      ${t(X(entry) - 46, ey + 30, 'YOUR 1 TRADE', { a: 'end', f: '#FFE7A3', fs: 11, fw: 800 })}`;
+    const inv = Y(cs[entry].lo - span * .05), xy = Y(cs[exit].hi);
+    const L4 = `<line x1="${X(entry) - cw}" x2="${xr}" y1="${inv}" y2="${inv}" stroke="#F2777B" stroke-dasharray="3 5"/>${t(xr - 4, inv - 7, 'INVALIDATION', { a: 'end', f: '#F2777B', fs: 10 })}
+      <line x1="${X(entry)}" y1="${ey + 12}" x2="${X(exit)}" y2="${xy - 12}" stroke="rgba(255,231,163,.55)" stroke-dasharray="2 5"/>
+      <path d="M${X(entry)} ${ey + 10}l-7 12h14z" fill="#FFC72C"/>${t(X(entry) + 12, ey + 22, 'ENTRY', { f: '#FFC72C', fs: 10.5 })}
+      <path d="M${X(exit)} ${xy - 10}l-7 -12h14z" fill="#FFC72C"/>${t(X(exit) - 12, xy - 14, 'EXIT', { a: 'end', f: '#FFC72C', fs: 10.5 })}`;
+    const cx = PL + 250, cy = PT + 34, row = (y, s) => `<circle cx="${cx + 22}" cy="${y - 4}" r="6" fill="#FFC72C"/><path d="M${cx + 19} ${y - 4}l2 2 3.6-4" fill="none" stroke="#05070A" stroke-width="1.6" stroke-linecap="round"/>` + t(cx + 36, y, s, { f: '#fff', fs: 12, fw: 600, ls: 0 });
+    const L5 = `<rect x="${cx}" y="${cy}" width="204" height="96" rx="12" fill="rgba(9,12,17,.94)" stroke="#FFC72C" stroke-opacity=".7"/>${t(cx + 16, cy + 22, 'MY DRT PLAN', { f: '#FFC72C', fs: 10.5, fw: 800, ls: '.18em' })}${row(cy + 46, 'Sessions I trade')}${row(cy + 64, 'Pairs and style')}${row(cy + 82, 'Journal routine')}`;
+    const svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="A week of price action with the DRT layers added night by night">
+      ${grid}<g class="cs__candles">${candles}</g>
+      ${[L1, L2, L3, L4, L5].map((g, i) => `<g class="lyr" data-l="${i}">${g}</g>`).join('')}</svg>`;
+    root.innerHTML = `<div class="cs__chart">${svg}</div><div class="cs__detail" aria-live="polite"></div>
+      <div class="cs__tabs" role="tablist" aria-label="Nights">${NIGHTS.map((n, i) => `<button class="cs__tab" role="tab" type="button" aria-selected="false" data-i="${i}"><span class="meta">${n.wd} ${n.dn} · Night ${i + 1}</span><strong>${n.short}</strong><i></i></button>`).join('')}</div>`;
+    const lyrs = $$('.lyr', root), tabs = $$('.cs__tab', root), detail = $('.cs__detail', root);
+    const show = a => {
+      lyrs.forEach((l, i) => l.classList.toggle('on', i <= a));
+      tabs.forEach((b, i) => b.setAttribute('aria-selected', String(i === a)));
+      const n = NIGHTS[a];
+      detail.innerHTML = `<div class="cs__swap"><span class="meta"><span class="gold">Night ${pad(a + 1)}</span> · ${n.day} · ${TIME}</span><h3>${n.title}</h3><p class="take">${n.take}</p><p class="desc">${n.desc}</p><span class="cs__added"><span class="ck">${CHECK}</span>Added to your chart: ${n.plan}</span></div>`;
+    };
+    const ap = autoplay(root, NIGHTS.length, 7000, i => show(i));
+    tabs.forEach(b => b.addEventListener('click', () => { ap.stop(); show(+b.dataset.i); }));
+    root.addEventListener('keydown', e => {
+      if (!e.target.matches('.cs__tab') || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+      const i = (+e.target.dataset.i + (e.key === 'ArrowRight' ? 1 : 4)) % 5; ap.stop(); show(i); tabs[i].focus();
+    });
+    show(0);
+  })();
+
+  /* ---------------- V3 · 15 → 1 ---------------- */
+  (function filter() {
+    const root = $('[data-ff]');
+    const hw = x => 128 - 104 * (x * x * (3 - 2 * x)); // half-height of the funnel at 0..1
+    const pts = []; for (let i = 0; i <= 60; i++) pts.push(i / 60);
+    const top = pts.map(p => `${(p * 1000).toFixed(1)},${(150 - hw(p)).toFixed(1)}`), bot = pts.slice().reverse().map(p => `${(p * 1000).toFixed(1)},${(150 + hw(p)).toFixed(1)}`);
+    const r = rng(23), parts = [];
+    for (let k = 0; k < 18; k++) { const y0 = 150 + (r() - .5) * 2 * hw(0) * .85, d = (4 + r() * 3).toFixed(1), b = (-r() * 6).toFixed(1); parts.push(`<circle r="${(1.4 + r() * 1.4).toFixed(1)}" fill="${r() < .5 ? '#8CD2FF' : '#FFE7A3'}" opacity=".8"><animateMotion dur="${d}s" begin="${b}s" repeatCount="indefinite" path="M-10,${y0.toFixed(1)} C 320,${y0.toFixed(1)} 560,150 1010,150"/></circle>`); }
+    const band = `<svg class="ff__band" viewBox="0 0 1000 300" aria-hidden="true"><defs><linearGradient id="fb" x1="0" x2="1"><stop offset="0" stop-color="rgba(140,210,255,.10)"/><stop offset=".7" stop-color="rgba(255,199,44,.14)"/><stop offset="1" stop-color="rgba(255,199,44,.32)"/></linearGradient></defs>
+      <polygon points="${top.join(' ')} ${bot.join(' ')}" fill="url(#fb)"/>
+      <polyline points="${top.join(' ')}" fill="none" stroke="rgba(255,199,44,.28)"/><polyline points="${bot.slice().reverse().join(' ')}" fill="none" stroke="rgba(255,199,44,.28)"/>
+      ${reduce ? '' : parts.join('')}</svg>`;
+    // Chip clusters per stage: 15 setups → the ones in the right place → 3 that pass the checks → 1 A+ trade → your plan.
+    const rs = rng(5), base = Array.from({ length: 15 }, (_, i) => ({ x: 12 + (i % 5) * 19 + (rs() - .5) * 8, y: 18 + Math.floor(i / 5) * 32 + (rs() - .5) * 12, l: i % 3 ? 'FVG' : 'OB' }));
+    const chips = (stage, mini) => {
+      if (stage === 4) return `<svg class="ff__tick" viewBox="0 0 64 44" aria-hidden="true"><rect x="2" y="2" width="60" height="40" rx="6" fill="rgba(9,12,17,.9)" stroke="#FFC72C"/><path d="M10 14h26M10 22h32M10 30h20" stroke="rgba(255,255,255,.5)" stroke-width="2.4" stroke-linecap="round"/><circle cx="50" cy="30" r="7" fill="#FFC72C"/><path d="M46.6 30.2l2.2 2.2 4-4.6" fill="none" stroke="#05070A" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+      if (stage === 2 || stage === 3) return `<span class="chip ap" style="left:50%;top:50%">${stage === 3 ? '▲ LIVE' : 'A+'}</span>`;
+      return base.map((c, i) => {
+        const col = i % 5, row = Math.floor(i / 5);
+        if (mini && col > 2) return '';
+        const x = mini ? 22 + col * 28 : c.x, y = mini ? 22 + row * 28 : c.y;
+        const cls = stage === 0 ? '' : (i % 5 === 0 ? 'pass' : 'dim');
+        return `<span class="chip ${cls}" style="left:${x.toFixed(0)}%;top:${y.toFixed(0)}%">${c.l}</span>`;
+      }).join('');
+    };
+    const centers = [.1, .3, .5, .7, .9];
+    root.innerHTML = `<div class="ff__viz">${band}<div class="ff__ends"><span>15 order blocks &amp; FVGs</span><span>1 A+ trade</span></div>
+        <div class="ff__stages">${centers.map((c, i) => `<div class="ff__stage" data-i="${i}"><div class="ff__box" style="height:${((2 * hw(c) - 26) / 300 * 100).toFixed(1)}%;width:${i < 2 ? 78 : 60}%">${chips(i)}</div></div>`).join('')}</div></div>
+      <div class="ff__cols">${NIGHTS.map((n, i) => `<article class="ff__col${i === 4 ? ' final' : ''}" data-i="${i}">
+          <div class="ff__mini" aria-hidden="true">${chips(i, true)}</div>
+          <span class="meta"><span class="gold">Night ${i + 1}</span> · ${n.day}</span>
+          <h3>${n.title}</h3><p class="take">${n.take}</p>
+          <details class="more"><summary>What we cover</summary><p class="desc">${n.desc}</p></details></article>`).join('')}</div>`;
+    // Gentle highlight that walks the filter left to right.
+    const stages = $$('.ff__stage', root), cols = $$('.ff__col', root);
+    let a = 0;
+    const hl = i => { stages.forEach((s, k) => s.classList.toggle('is-active', k === i)); cols.forEach((c, k) => c.classList.toggle('is-active', k === i)); };
+    hl(0);
+    if (!reduce) setInterval(() => { a = (a + 1) % 5; hl(a); }, 2400);
+  })();
+
+  /* ---------------- V4 · Week Ahead ---------------- */
+  (function week() {
+    const root = $('[data-wk]');
+    root.innerHTML = NIGHTS.map((n, i) => `
+      <div class="wk__p" role="button" tabindex="0" aria-expanded="${i === 0}" data-i="${i}" aria-label="Night ${i + 1}, ${n.day}: ${n.short}">
+        <div class="wk__head"><span class="wk__wd">${n.wd}</span><span class="wk__dt">${n.mo} ${n.dn}</span></div>
+        <span class="wk__ghost" aria-hidden="true">${i + 1}</span>
+        <div class="wk__mini"><span class="meta">Night ${i + 1}</span><strong>${n.short}</strong></div>
+        <svg class="wk__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="wk__body"><span class="ev"><i></i>7:00 – 8:00 PM EST · Live on Zoom</span><h3>${n.title}</h3><p class="take">${n.take}</p><p class="desc">${n.desc}</p></div>
+        <span class="wk__bar"><i></i></span>
+      </div>`).join('');
+    const ps = $$('.wk__p', root);
+    const mobile = matchMedia('(max-width: 980px)');
+    const open = i => ps.forEach((p, k) => p.setAttribute('aria-expanded', String(k === i)));
+    const ap = mobile.matches ? { stop() {}, set() {} } : autoplay(root, NIGHTS.length, 6500, open);
+    ps.forEach((p, i) => {
+      const go = () => { ap.stop(); if (mobile.matches && p.getAttribute('aria-expanded') === 'true') p.setAttribute('aria-expanded', 'false'); else open(i); };
+      p.addEventListener('click', e => { if (!e.target.closest('a')) go(); });
+      p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    });
+  })();
+
+  /* ---------------- V5 · Rail ---------------- */
+  (function rail() {
+    const root = $('[data-rl]');
+    root.innerHTML = `<div class="rl__track" aria-hidden="true"><div class="rl__fill"></div></div>
+      <ol class="rl__list">${NIGHTS.map((n, i) => `<li class="rl__item${i === 4 ? ' is-final' : ''}">
+        <span class="rl__node" aria-hidden="true">${i + 1}</span>
+        <div class="rl__card">
+          ${i === 4 ? '<span class="rl__badge">Your plan, written down</span>' : ''}
+          <div class="cal"><span class="cal__wd">${n.wd}</span><span class="cal__n">${n.dn}<small>${n.mo} · 7 PM</small></span></div>
+          <h3>${n.title}</h3><p class="take">${n.take}</p>
+          <details class="more"><summary>What we cover</summary><p class="desc">${n.desc}</p></details>
+        </div></li>`).join('')}</ol>`;
+    const list = $('.rl__list', root), items = $$('.rl__item', root);
+    const mobile = matchMedia('(max-width: 980px)');
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = list.getBoundingClientRect(), vh = innerHeight;
+      const p = mobile.matches ? Math.min(1, Math.max(0, (vh * .55 - rect.top) / rect.height))
+        : Math.min(1, Math.max(0, (vh * .85 - rect.top) / (vh * .55)));
+      root.style.setProperty('--p', p.toFixed(3));
+      items.forEach((it, i) => it.classList.toggle('on', reduce || p >= (mobile.matches ? i / 5 + .02 : (i + .5) / 5 - .08)));
+    };
+    const req = () => { if (!raf) raf = requestAnimationFrame(update); };
+    addEventListener('scroll', req, { passive: true }); addEventListener('resize', req); update();
+  })();
+})();
+</script>
+</body>
+</html>
