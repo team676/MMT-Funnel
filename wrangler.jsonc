@@ -1,0 +1,14 @@
+// Cloudflare Workers (static assets only, no Worker script): free and unlimited on the Free plan.
+// Do NOT enable Workers Caching or add a "main" script; either would make requests billable.
+{
+  "name": "mmt-funnel",
+  "compatibility_date": "2026-10-01",
+  // While the design is being revised, the site serves the Claude Design file from design/.
+  // Switch to "./public" once the production page is built.
+  "assets": {
+    "directory": "./design"
+  },
+  "workers_dev": true,
+  // Gives every non-production branch push its own preview link.
+  "preview_urls": true
+}
