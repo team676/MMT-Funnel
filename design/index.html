@@ -56,7 +56,7 @@ a{color:#FFC72C;text-decoration:none} a:hover{color:#fff}
 @keyframes mmtTick{0%{opacity:0;transform:scale(.5)}8%,86%{opacity:1;transform:scale(1)}96%,100%{opacity:0;transform:scale(.5)}}
 /* Section 03 · Curriculum: stacked night rows, glow edge */
 .mmt-rows{position:relative;max-width:1240px;margin:clamp(44px,5vw,64px) auto 0;display:flex;flex-direction:column;gap:22px}
-.mmt-night{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:20px clamp(32px,4vw,64px);align-items:start;padding:clamp(28px,3vw,38px) clamp(24px,2.8vw,40px);border-radius:22px;background:linear-gradient(90deg,#12110B,#0B0D11 42%,#090B0F);border:1px solid rgba(255,255,255,.08);box-shadow:0 -24px 40px -28px rgba(0,0,0,.9);transition:box-shadow .5s}
+.mmt-night{box-sizing:border-box;position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:20px clamp(32px,4vw,64px);align-items:start;padding:clamp(28px,3vw,38px) clamp(24px,2.8vw,40px);border-radius:22px;background:linear-gradient(90deg,#12110B,#0B0D11 42%,#090B0F);border:1px solid rgba(255,255,255,.08);box-shadow:0 -24px 40px -28px rgba(0,0,0,.9);transition:box-shadow .5s}
 .mmt-night::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;background:linear-gradient(180deg,rgba(255,199,44,0),#FFC72C 30%,#FFC72C 70%,rgba(255,199,44,0));box-shadow:0 0 22px 2px rgba(255,199,44,.35);opacity:.7;transition:opacity .5s,box-shadow .5s}
 .mmt-night.is-on::before{opacity:1;box-shadow:0 0 34px 4px rgba(255,199,44,.55)}
 .mmt-night.is-on{box-shadow:0 -24px 40px -28px rgba(0,0,0,.9),0 0 90px -40px rgba(255,199,44,.6)}
