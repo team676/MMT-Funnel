@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Day Challenge Curriculum</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<style>
+/* Layout: the page's stacked sticky cards (3C), three card treatments stacked one after another for comparison. */
+:root{
+  color-scheme:dark;
+  --bg:#05070A;--bg2:#070A10;--card-a:#111620;--card-b:#0A0D13;--edge:rgba(255,255,255,.09);
+  --gold:#FFC72C;--gold-hi:#FFE08A;--gold-deep:#C98A00;--glow:rgba(255,199,44,.5);
+  --t-strong:#FFFFFF;--t-read:#E3E9EF;--t-soft:#AEB9C4;--t-mute:#8E9AA6;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--sans:Inter,system-ui,sans-serif;
+  --stick:72px;--step:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--t-strong);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h2,h3,p{margin:0}
+.gold{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- review chrome (not part of the page) ---------- */
+.rv{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;display:flex;align-items:center;gap:16px;height:56px;padding:0 20px;background:rgba(5,7,10,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)}
+.rv__t{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--t-mute);white-space:nowrap}
+.rv__nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.rv__nav::-webkit-scrollbar{display:none}
+.rv__nav a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--edge);color:var(--t-strong);text-decoration:none;font:600 13px/1 var(--sans);white-space:nowrap}
+.rv__nav a b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--bg);font:800 11px/1 var(--sans)}
+.rv__nav a:hover{border-color:rgba(255,199,44,.6)}
+.tag{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;max-width:1040px;margin:0 auto;padding:0 24px}
+.tag span{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(255,199,44,.08);border:1px solid rgba(255,199,44,.3);font:700 13px/1 var(--sans)}
+.tag span b{display:inline-grid;place-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--gold);color:var(--bg);font:800 11px/1 var(--sans)}
+.tag em{font:500 13px/1.3 var(--sans);font-style:normal;color:var(--t-mute)}
+
+/* ---------- section shell (matches the page) ---------- */
+.v{position:relative;padding:clamp(56px,7vw,96px) 24px clamp(72px,8vw,120px);background:var(--bg2);border-top:1px solid var(--edge)}
+.v:nth-of-type(even){background:var(--bg)}
+.head{max-width:960px;margin:clamp(28px,4vw,44px) auto 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.h2{font:800 clamp(32px,3.5vw,52px)/1.08 var(--display);letter-spacing:-.028em;text-wrap:balance}
+.lede{max-width:780px;font:400 clamp(16px,1.3vw,18px)/1.7 var(--sans);color:var(--t-read);text-wrap:pretty}
+.stack{max-width:980px;margin:clamp(40px,5vw,60px) auto 0;display:flex;flex-direction:column;gap:24px}
+.card{position:sticky;top:calc(var(--stick) + var(--i) * var(--step));border-radius:22px;border:1px solid var(--edge);background:linear-gradient(160deg,var(--card-a) 0%,var(--card-b) 100%);box-shadow:0 -22px 50px -22px rgba(0,0,0,.9);overflow:hidden}
+.cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:clamp(48px,6vw,72px)}
+.btn{position:relative;overflow:hidden;width:min(480px,100%);display:flex;align-items:center;justify-content:center;background:#57B6F2;color:#03101C;font:800 clamp(18px,1.5vw,21px)/1 var(--display);letter-spacing:.045em;text-transform:uppercase;text-decoration:none;padding:21px 32px;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 3px 0 #2C82BD,0 18px 40px -14px rgba(87,182,242,.75)}
+.btn:hover{background:#6CC1F5}
+.cta p{font:400 15px/1 var(--sans);color:var(--t-mute)}
+.desc{font:400 clamp(17px,1.4vw,19.5px)/1.68 var(--sans);color:var(--t-read);letter-spacing:.002em;text-wrap:pretty;max-width:60ch}
+.desc strong{font-weight:600;color:var(--t-strong)}
+.title{font:800 clamp(24px,2.3vw,32px)/1.12 var(--display);letter-spacing:-.022em;text-wrap:balance}
+.title em{font-style:normal;color:var(--gold)}
+.when{display:inline-flex;align-items:center;gap:9px;font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--t-soft);white-space:nowrap}
+.when i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--glow)}
+
+/* =========================================================
+   CARD A · CALENDAR TILE
+   ========================================================= */
+.ca{display:grid;grid-template-columns:148px minmax(0,1fr);gap:clamp(24px,3.4vw,44px);align-items:start;padding:clamp(26px,3.2vw,38px) clamp(24px,3.4vw,42px)}
+.ca::before{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,rgba(255,199,44,0),rgba(255,199,44,.75),rgba(255,199,44,0))}
+.ca__tile{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 0 14px;border-radius:18px;border:1px solid rgba(255,199,44,.55);background:radial-gradient(90% 80% at 50% 0%,rgba(255,199,44,.22),rgba(255,199,44,.03) 70%),#0C1017;box-shadow:0 0 0 4px rgba(255,199,44,.06),0 0 44px -10px var(--glow)}
+.ca__day{font:800 11px/1 var(--sans);letter-spacing:.32em;color:var(--gold);padding-left:.32em}
+.ca__num{font:800 66px/.9 var(--display);letter-spacing:-.04em;color:var(--gold-hi);text-shadow:0 0 22px rgba(255,199,44,.55),0 0 2px rgba(255,199,44,.8)}
+.ca__date{margin-top:6px;padding-top:10px;width:80%;text-align:center;white-space:nowrap;border-top:1px solid rgba(255,199,44,.25);font:800 14px/1.2 var(--sans);letter-spacing:.03em;color:var(--t-strong)}
+.ca__date small{display:block;margin-top:4px;font:600 11px/1 var(--sans);letter-spacing:.14em;color:var(--t-mute)}
+.ca__main{display:flex;flex-direction:column;gap:14px;min-width:0;padding-top:2px}
+.ca .desc strong{text-decoration:underline;text-decoration-color:rgba(255,199,44,.6);text-decoration-thickness:2px;text-underline-offset:5px}
+
+/* =========================================================
+   CARD B · GLOW BADGE (title left, description right)
+   ========================================================= */
+.cb{padding:clamp(24px,3vw,34px) clamp(24px,3.4vw,42px) clamp(28px,3.4vw,40px)}
+.cb::before{content:"";position:absolute;inset:0 0 auto 0;height:140px;background:radial-gradient(60% 100% at 0% 0%,rgba(255,199,44,.13),rgba(255,199,44,0) 70%);pointer-events:none}
+.cb__top{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:12px 16px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--edge)}
+.cb__badge{display:inline-flex;align-items:center;padding:9px 14px;border-radius:10px;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#141005;font:800 15px/1 var(--display);letter-spacing:.06em;box-shadow:0 0 0 1px rgba(255,231,163,.6) inset,0 8px 28px -6px var(--glow),0 0 36px -8px var(--glow)}
+.cb__date{font:700 clamp(18px,1.6vw,21px)/1 var(--sans);color:var(--t-strong);letter-spacing:-.005em}
+.cb__pips{margin-left:auto;display:flex;gap:6px}
+.cb__pips i{width:22px;height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
+.cb__pips i.on{background:var(--gold)}
+.cb__pips i.now{box-shadow:0 0 12px var(--glow)}
+.cb__body{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3.6vw,52px);align-items:start}
+.cb .title{font-size:clamp(25px,2.4vw,34px)}
+.cb .title em{color:var(--gold);text-shadow:0 0 26px rgba(255,199,44,.35)}
+.cb .desc strong{color:var(--gold-hi)}
+
+/* =========================================================
+   CARD C · BIG NUMERAL
+   ========================================================= */
+.cc{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(22px,3.4vw,46px);padding:clamp(26px,3.2vw,38px) clamp(24px,3.4vw,42px)}
+.cc::before{content:"";position:absolute;left:-60px;top:-60px;width:320px;height:320px;background:radial-gradient(50% 50% at 50% 50%,rgba(255,199,44,.16),rgba(255,199,44,0) 70%);pointer-events:none}
+.cc__side{position:relative;display:flex;flex-direction:column;gap:12px}
+.cc__num{font:800 112px/.8 var(--display);letter-spacing:-.06em;background:linear-gradient(180deg,#FFF1C4 0%,var(--gold) 55%,var(--gold-deep) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,199,44,.45))}
+.cc__side>div{display:flex;flex-direction:column;gap:7px}
+.cc__wd{font:800 22px/1 var(--display);letter-spacing:.02em;color:var(--t-strong)}
+.cc__md{font:700 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--t-mute)}
+.cc__main{position:relative;display:flex;flex-direction:column;gap:16px;min-width:0}
+.cc__eyebrow{font:800 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cc .desc strong{background:linear-gradient(transparent 58%,rgba(255,199,44,.24) 58%);padding:0 2px}
+
+/* ---------- smaller screens: stack inside the card, and drop stickiness when a card could be taller than the screen ---------- */
+@media (max-width:760px),(max-height:620px){
+  .card{position:relative;top:auto}
+}
+@media (max-width:760px){
+  .v{padding-left:16px;padding-right:16px}
+  .tag{padding:0}
+  .rv__t{display:none}
+  .stack{gap:16px}
+  .ca{grid-template-columns:1fr;gap:18px}
+  .ca__tile{flex-direction:row;justify-content:flex-start;gap:14px;padding:12px 16px}
+  .ca__num{font-size:44px}
+  .ca__date{margin:0 0 0 auto;padding:0 0 0 14px;width:auto;border-top:0;border-left:1px solid rgba(255,199,44,.25);text-align:left}
+  .cb__body{grid-template-columns:1fr;gap:14px}
+  .cb__pips{display:none}
+  .cc{grid-template-columns:1fr;gap:14px}
+  .cc__side{flex-direction:row;align-items:flex-end;gap:14px}
+  .cc__num{font-size:72px}
+  .cc__side>div{padding-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav class="rv" aria-label="Card versions">
+  <span class="rv__t">Curriculum cards · 3 versions</span>
+  <div class="rv__nav">
+    <a href="#a"><b>A</b>Calendar Tile</a>
+    <a href="#b"><b>B</b>Glow Badge</a>
+    <a href="#c"><b>C</b>Big Numeral</a>
+  </div>
+</nav>
+
+<section class="v" id="a" aria-labelledby="h-a">
+  <div class="tag"><span><b>A</b>Calendar Tile</span><em>A glowing date tile per night; title and text read top to bottom.</em></div>
+  <header class="head" data-head="h-a"></header>
+  <div class="stack" data-stack="a"></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="b" aria-labelledby="h-b">
+  <div class="tag"><span><b>B</b>Glow Badge</span><em>Your two-column card, cleaned up: gold DAY badge, big date, progress on the right.</em></div>
+  <header class="head" data-head="h-b"></header>
+  <div class="stack" data-stack="b"></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<section class="v" id="c" aria-labelledby="h-c">
+  <div class="tag"><span><b>C</b>Big Numeral</span><em>An oversized gold day number anchors each card.</em></div>
+  <header class="head" data-head="h-c"></header>
+  <div class="stack" data-stack="c"></div>
+  <div class="cta" data-cta></div>
+</section>
+
+<script>
+(() => {
+  'use strict';
+  // Copy is verbatim from the page. <em> marks the gold phrase in each title; <strong> marks the phrases
+  // that stand out in each description (emphasis only, no words changed).
+  const NIGHTS = [
+    { wd: 'Mon', wdl: 'Monday', mo: 'Nov', dn: 2,
+      title: '<em>The DRT Levels:</em> Spot the Real ICT Setups in Under a Minute',
+      desc: 'Night one you get the backbone of DRT: <strong>the 25, 50 and 75 levels</strong>, and the sessions that matter. You’ll learn to see in seconds whether an order block or FVG is sitting in the right place at the right time, and you’ll be <strong>clearing the dead setups off your chart</strong> before you go to bed.' },
+    { wd: 'Tue', wdl: 'Tuesday', mo: 'Nov', dn: 3,
+      title: 'The <em>3 DRT Checks</em> for a Winning Trade',
+      desc: 'The three conditions DRT runs before every trade: higher time frame bias, a valid dealing range, and a confirmed change in state of delivery. <strong>All three line up, you take it. One missing, you wait.</strong> You’ll also get my DRT rule for a missed entry, so you never chase price again.' },
+    { wd: 'Wed', wdl: 'Wednesday', mo: 'Nov', dn: 4,
+      title: 'The DRT Morning Routine: <em>Know Your One Trade</em> Before the Open',
+      desc: 'My exact pre open routine, start to finish: read where price is reaching, grade the dealing range, rank every setup by real reward, and <strong>sit down knowing your one DRT trade before the market opens.</strong> This is the night you go from <strong>fifteen trades a week to one trade a session.</strong>' },
+    { wd: 'Thu', wdl: 'Thursday', mo: 'Nov', dn: 5,
+      title: 'Watch Me Trade DRT <em>Live, Candle by Candle</em>',
+      desc: 'I run the full DRT filter on real charts in front of you and explain every decision as it happens: what qualifies, what makes me sit on my hands, and <strong>the exact invalidation that tells me I’m wrong before it costs a penny.</strong> This is the night DRT clicks.' },
+    { wd: 'Fri', wdl: 'Friday', mo: 'Nov', dn: 6,
+      title: '<em>Your Own DRT Trading Plan,</em> Built Live, With Me',
+      desc: 'We build your DRT plan together around your life: the sessions you can trade, the pairs and style that suit you, and the journaling routine that turns your own data into confidence. You leave with it written down, <strong>simple enough to fit on the back of a business card,</strong> and <strong>you run it Monday morning.</strong>' }
+  ];
+  const TIME = '7 PM EST';
+  const pad = n => String(n).padStart(2, '0');
+  const $$ = s => Array.from(document.querySelectorAll(s));
+
+  $$('[data-head]').forEach(h => {
+    h.innerHTML = `<h2 class="h2" id="${h.dataset.head}">Here’s Everything We’ll Cover In The <span class="gold">5 Day Challenge</span></h2>
+      <p class="lede">Sixty minutes a night, live on Zoom, ${TIME}. Each night you get one piece of the DRT process, and by Friday you’re gonna be running the whole thing on your own charts.</p>`;
+  });
+  $$('[data-cta]').forEach(c => { c.innerHTML = '<a class="btn" href="#">Join the 5 Day Challenge</a><p>Sixty minutes a night.</p>'; });
+
+  const when = `<span class="when"><i aria-hidden="true"></i>${TIME} · Live on Zoom</span>`;
+  const R = {
+    a: (n, i) => `<article class="card ca" style="--i:${i}">
+        <div class="ca__tile"><span class="ca__day">DAY</span><span class="ca__num">${pad(i + 1)}</span><span class="ca__date">${n.wd.toUpperCase()} · ${n.mo.toUpperCase()} ${n.dn}</span></div>
+        <div class="ca__main">${when}<h3 class="title">${n.title}</h3><p class="desc">${n.desc}</p></div>
+      </article>`,
+    b: (n, i) => `<article class="card cb" style="--i:${i}">
+        <div class="cb__top"><span class="cb__badge">DAY ${pad(i + 1)}</span><span class="cb__date">${n.wd}, ${n.mo} ${n.dn}</span>${when}
+          <span class="cb__pips" aria-hidden="true">${[0, 1, 2, 3, 4].map(k => `<i class="${k <= i ? 'on' : ''}${k === i ? ' now' : ''}"></i>`).join('')}</span></div>
+        <div class="cb__body"><h3 class="title">${n.title}</h3><p class="desc">${n.desc}</p></div>
+      </article>`,
+    c: (n, i) => `<article class="card cc" style="--i:${i}">
+        <div class="cc__side"><span class="cc__num" aria-hidden="true">${pad(i + 1)}</span><div><span class="cc__wd">${n.wdl}</span><span class="cc__md">${n.mo} ${n.dn} · ${TIME}</span></div></div>
+        <div class="cc__main"><span class="cc__eyebrow">Day ${pad(i + 1)} of 05</span><h3 class="title">${n.title}</h3><p class="desc">${n.desc}</p></div>
+      </article>`
+  };
+  $$('[data-stack]').forEach(s => { s.innerHTML = NIGHTS.map((n, i) => R[s.dataset.stack](n, i)).join(''); });
+  // Every card in a stack gets the tallest card's height, so the pile stays a clean edge as cards stack up.
+  const stacking = matchMedia('(min-width: 761px) and (min-height: 621px)');
+  const level = () => $$('[data-stack]').forEach(s => {
+    const cards = Array.from(s.children);
+    cards.forEach(c => { c.style.minHeight = ''; });
+    if (!stacking.matches) return;
+    const h = Math.max(...cards.map(c => c.offsetHeight));
+    cards.forEach(c => { c.style.minHeight = h + 'px'; });
+  });
+  level();
+  let t = 0; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(level, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(level);
+})();
+</script>
+</body>
+</html>
