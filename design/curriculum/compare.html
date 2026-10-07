@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compare · 10 versions</title>
+<title>Compare · 13 versions</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,10 +171,54 @@ h2,h3,p{margin:0}
 .v10 .now .mk{background:transparent;color:#E8737A}
 .v10 .fri .mk{background:transparent;color:#2EBD85}
 .v10 .mk svg{width:80%;height:80%}
+
+/* ===== 11-13: my own, for a mature audience (Kunal, 7 Oct 2026: "it all looks gimmicky … add your spice with full freedom").
+   No coloured fills, no icon squares, no VS badge. Contrast comes from type weight and tone; gold is the only accent; the one
+   flourish is a trader's own: a flat, choppy equity line against a rising one. ===== */
+.m h2 .r{color:#8E9AA6}.m h2 .g{color:var(--gold)}
+
+/* 11 · Ledger: one statement-style table on slate, numbered rows, Right Now in grey, By Friday in white along a gold rule */
+.ledger{max-width:1040px;width:100%;margin:clamp(40px,5vw,56px) auto 0;padding:6px 36px 10px;border-radius:16px;background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
+.lg-r{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.lg-r:last-child{border-bottom:0}
+.lg-h{padding:22px 0 16px;border-bottom:1px solid rgba(255,255,255,.14)}
+.lg-h span{font:800 22px/1 var(--display);letter-spacing:-.02em}
+.lg-h .a{color:#8E9AA6}.lg-h .b{color:var(--gold)}
+.lg-r .n{font:600 13px/1.55 var(--sans);color:#5D6874;font-variant-numeric:tabular-nums}
+.lg-r .a{font:400 17px/1.55 var(--sans);color:#8E9AA6;text-wrap:pretty}
+.lg-r .b{font:500 17px/1.55 var(--sans);color:#fff;padding-left:22px;border-left:2px solid rgba(255,199,44,.75);text-wrap:pretty}
+.lg-h .b{border-left-color:transparent}
+.lg-r.lg-h .a,.lg-r.lg-h .b{font:800 22px/1 var(--display);letter-spacing:-.02em}
+
+/* 12 · Equity curves: two slate cards; under each label, the account it describes: a flat, choppy line, then a rising one */
+.v12 .card{border-radius:16px;background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
+.v12 .fri{border-color:rgba(255,199,44,.32)}
+.v12 .lbl{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-color:rgba(255,255,255,.1)}
+.v12 .lbl svg{flex:none;width:150px;height:34px}
+.v12 .now .lbl{color:#8E9AA6}.v12 .fri .lbl{color:var(--gold)}
+.v12 .it{border-color:rgba(255,255,255,.06)}
+.v12 .now .it{color:#8E9AA6;font-weight:400}
+.v12 .fri .it{color:#fff}
+.v12 .mk{width:18px;height:18px;border-radius:0;background:transparent}
+.v12 .now .mk{color:#5D6874}.v12 .fri .mk{color:var(--gold)}
+.v12 .mk svg{width:100%;height:100%}
+
+/* 13 · Stacked turnarounds: six slate rows like the day cards; the old way on the left in grey, a long gold arrow, the new way
+   in white */
+.st{max-width:1040px;width:100%;margin:clamp(40px,5vw,56px) auto 0;display:flex;flex-direction:column;gap:10px}
+.st-h,.st-r{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);align-items:center;column-gap:20px}
+.st-h{padding:0 30px 6px}
+.st-h span{font:800 22px/1 var(--display);letter-spacing:-.02em}
+.st-h .a{color:#8E9AA6}.st-h .b{color:var(--gold)}
+.st-r{padding:20px 30px;border-radius:14px;background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
+.st-r .a{font:400 17px/1.5 var(--sans);color:#8E9AA6;text-wrap:pretty}
+.st-r .b{font:500 17px/1.5 var(--sans);color:#fff;text-wrap:pretty}
+.st-r .ar{color:var(--gold)}
+.st-r .ar svg{width:100%;height:12px;display:block}
 </style>
 </head>
 <body>
-<div class="rv"><span>Section 5 · 10 versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a><a href="#v4"><b>4</b>Framed pair</a><a href="#v5"><b>5</b>Paper and gold</a><a href="#v6"><b>6</b>Paper and slate</a><a href="#v7"><b>7</b>White and green</a><a href="#v8"><b>8</b>Gold divide</a><a href="#v9"><b>9</b>Tinted frames</a><a href="#v10"><b>10</b>Header bars</a></div>
+<div class="rv"><span>Section 5</span><a href="#v11"><b>11</b>Ledger</a><a href="#v12"><b>12</b>Equity curves</a><a href="#v13"><b>13</b>Stacked turnarounds</a><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a><a href="#v4"><b>4</b>Framed pair</a><a href="#v5"><b>5</b>Paper and gold</a><a href="#v6"><b>6</b>Paper and slate</a><a href="#v7"><b>7</b>White and green</a><a href="#v8"><b>8</b>Gold divide</a><a href="#v9"><b>9</b>Tinted frames</a><a href="#v10"><b>10</b>Header bars</a></div>
 <main data-root></main>
 <script>
 (() => {
@@ -195,14 +239,29 @@ h2,h3,p{margin:0}
     ['v10', 'Header bars', 'From MK’s red and green title bars: slate cards with the label in a solid bar across the top, the colours a step deeper and quieter.', ''],
   ];
   const item = (mk, t) => `<div class="it"><span class="mk">${mk}</span><span>${t}</span></div>`;
-  document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge, num], k) => `<section class="vsec ${id}" id="${id}">
-    <div class="note"><b>${k + 1}</b><span><strong style="color:#fff">${name}.</strong> ${note}</span></div>
+  /* 11-13, mine. */
+  const FLAT = '<svg viewBox="0 0 150 34" aria-hidden="true"><path d="M2 20 L14 14 L24 23 L36 16 L46 25 L58 15 L70 22 L80 18 L92 26 L104 16 L114 23 L126 17 L138 24 L148 19" fill="none" stroke="#5D6874" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+  const RISE = '<svg viewBox="0 0 150 34" aria-hidden="true"><defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC72C" stop-opacity=".22"/><stop offset="1" stop-color="#FFC72C" stop-opacity="0"/></linearGradient></defs><path d="M2 31 L16 28 L26 29 L40 24 L50 25 L64 20 L74 21 L88 15 L98 16 L112 10 L122 11 L136 5 L148 3 L148 34 L2 34 Z" fill="url(#rg)"/><path d="M2 31 L16 28 L26 29 L40 24 L50 25 L64 20 L74 21 L88 15 L98 16 L112 10 L122 11 L136 5 L148 3" fill="none" stroke="#FFC72C" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+  const DASH = '<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  const TICK = '<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3.5 9.4l3.4 3.3 7.6-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const LONG = '<svg viewBox="0 0 72 12" preserveAspectRatio="none" aria-hidden="true"><path d="M1 6h68M63 1.5l5 4.5-5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const n2 = (i) => String(i + 1).padStart(2, '0');
+  V.unshift(
+    ['v11', 'Ledger', 'Mine, for a mature audience. One statement-style table on slate: numbered rows, the way it is now in grey, By Friday in white along a single gold rule. No icons, no colour fills: it reads like an account statement.', '', false,
+      `<div class="ledger"><div class="lg-r lg-h"><span></span><span class="a">Right Now</span><span class="b">By Friday</span></div>${NOW.map((t, i) => `<div class="lg-r"><span class="n">${n2(i)}</span><span class="a">${t}</span><span class="b">${FRI[i]}</span></div>`).join('')}</div>`],
+    ['v12', 'Equity curves', 'Mine. Two slate cards, and under each label the account it describes: a flat, choppy line for Right Now, a steady rising one in gold for By Friday. Plain dashes and thin gold ticks, no squares.', '', false,
+      `<div class="vs v12"><div class="card now"><h3 class="lbl">Right Now ${FLAT}</h3>${NOW.map((t) => item(DASH, t)).join('')}</div><div class="card fri"><h3 class="lbl">By Friday ${RISE}</h3>${FRI.map((t) => item(TICK, t)).join('')}</div></div>`],
+    ['v13', 'Stacked turnarounds', 'Mine. Six slate rows in the day cards’ style, one per change: the old way in grey, a long gold arrow, the new way in white. Reads as a before and after, line by line.', '', false,
+      `<div class="st"><div class="st-h"><span class="a">Right Now</span><span></span><span class="b">By Friday</span></div>${NOW.map((t, i) => `<div class="st-r"><span class="a">${t}</span><span class="ar">${LONG}</span><span class="b">${FRI[i]}</span></div>`).join('')}</div>`],
+  );
+  document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge, num, body], k) => `<section class="vsec ${id}${body ? ' m' : ''}" id="${id}">
+    <div class="note"><b>${k < 3 ? k + 11 : k - 2}</b><span><strong style="color:#fff">${name}.</strong> ${note}</span></div>
     <h2>Your ICT Trading <span class="r">Right Now</span> vs. <span class="g">After The 5-Day Challenge</span></h2>
-    <div class="vs">
+    ${body || `<div class="vs">
       <div class="card now"><h3 class="lbl">Right Now</h3>${NOW.map((t) => item(CROSS, t)).join('')}</div>
       <div class="card fri"><h3 class="lbl">By Friday</h3>${FRI.map((t, i) => item(num ? `0${i + 1}` : CHECK, t)).join('')}</div>
       ${badge}
-    </div>
+    </div>`}
     <div class="cta"><a class="btn" href="#">Join the 5 Day Challenge</a><small>Sixty minutes a night.</small></div>
   </section>`).join('');
 })();
