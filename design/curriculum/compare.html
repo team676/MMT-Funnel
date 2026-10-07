@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compare · 3 calmer versions</title>
+<title>Compare · 10 versions</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,26 +20,27 @@ h2,h3,p{margin:0}
 .rv span{font:700 14px/1 var(--sans);color:#8E9AA6}
 .rv a{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.09);color:#fff;text-decoration:none;font:600 13px/1 var(--sans)}
 .rv a b{color:var(--gold);margin-right:6px}
-.note{max-width:1400px;margin:0 auto;display:flex;gap:12px;align-items:baseline;font:500 15px/1.4 var(--sans);color:#A3AEB9}
+.note{max-width:1040px;margin:0 auto;display:flex;gap:12px;align-items:baseline;font:500 15px/1.4 var(--sans);color:#A3AEB9}
 .note b{flex:none;padding:7px 11px;border-radius:6px;background:var(--gold);color:#141005;font:800 14px/1 var(--display)}
 
 /* the layout, as on the page */
-.vsec{min-height:calc(100vh - 57px);display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,3vh,30px);padding:clamp(20px,3.6vh,44px) 24px;background:#070A10;border-bottom:1px solid rgba(255,255,255,.08)}
-.vsec h2{margin:0 auto;max-width:1400px;text-align:center;font:800 clamp(28px,min(3.4vw,5.6vh),56px)/1.1 var(--display);letter-spacing:-.03em;text-wrap:balance}
-.vs{position:relative;width:100%;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto repeat(6,auto);column-gap:var(--gap,44px)}
-.card{display:grid;grid-row:1/span 7;grid-template-rows:subgrid;row-gap:0;padding:clamp(18px,3vh,34px) clamp(28px,3vw,44px);border-radius:18px}
-.lbl{margin:0 0 clamp(6px,1.2vh,12px);padding-bottom:clamp(10px,1.5vh,14px);font:800 clamp(24px,3.4vh,32px)/1 var(--display);letter-spacing:-.025em;border-bottom:1px solid}
-.it{display:flex;gap:16px;align-items:center;padding:clamp(9px,1.45vh,15px) 2px;border-bottom:1px solid;font:500 clamp(15px,min(1.3vw,2.05vh),18px)/1.42 var(--sans);text-wrap:pretty}
+.vsec{display:flex;flex-direction:column;gap:0;padding:clamp(72px,8vw,112px) 24px;background:#070A10;border-bottom:1px solid rgba(255,255,255,.08)}
+.vsec .note{margin-bottom:40px}
+.vsec h2{margin:0 auto;max-width:960px;text-align:center;font:800 clamp(34px,3.5vw,52px)/1.08 var(--display);letter-spacing:-.028em;text-wrap:balance}
+.vs{position:relative;width:100%;max-width:1040px;margin:clamp(40px,5vw,56px) auto 0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto repeat(6,auto);column-gap:var(--gap,24px)}
+.card{--py:30px;--px:32px;display:grid;grid-row:1/span 7;grid-template-rows:subgrid;row-gap:0;padding:var(--py) var(--px);border-radius:18px}
+.lbl{margin:0 0 12px;padding-bottom:14px;font:800 30px/1 var(--display);letter-spacing:-.025em;border-bottom:1px solid}
+.it{display:flex;gap:16px;align-items:center;padding:13px 2px;border-bottom:1px solid;font:500 16.5px/1.45 var(--sans);text-wrap:pretty}
 .it:last-child{border-bottom:0}
 .mk{flex:none;width:26px;height:26px;border-radius:7px;display:grid;place-items:center}
 .mk svg{width:58%;height:58%;display:block}
-.cta{display:flex;flex-direction:column;align-items:center;gap:10px}
+.cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:clamp(48px,6vw,72px)}
 .btn{width:min(480px,100%);display:flex;align-items:center;justify-content:center;background:#57B6F2;color:#03101C;font:800 21px/1 var(--display);letter-spacing:.045em;text-transform:uppercase;padding:21px 36px;border-radius:8px;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 3px 0 #2C82BD,0 12px 28px -16px rgba(0,0,0,.9)}
 .cta small{font:400 15px/1 var(--sans);color:#9AA6B2}
 
 /* 1 · Slate and ivory: Right Now in the day cards' slate, By Friday on ivory; gold is the only accent */
 .v1 h2 .r{color:#E8737A}.v1 h2 .g{color:var(--gold)}
-.v1 .now{background:#0E141B;border:1px solid rgba(255,255,255,.08)}
+.v1 .now{background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
 .v1 .now .lbl{color:#E8737A;border-color:rgba(232,115,122,.45)}
 .v1 .now .it{color:#A3AEB9;border-color:rgba(255,255,255,.07)}
 .v1 .now .mk{background:rgba(232,115,122,.12);color:#E8737A}
@@ -50,15 +51,15 @@ h2,h3,p{margin:0}
 
 /* 2 · All dark, gold frame: both cards in the page's dark, By Friday lifted by a gold hairline and a faint gold wash */
 .v2 h2 .r{color:#E8737A}.v2 h2 .g{color:var(--gold)}
-.v2 .now{background:#0B0F15;border:1px solid rgba(255,255,255,.08)}
+.v2 .now{background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
 .v2 .now .lbl{color:#E8737A;border-color:rgba(255,255,255,.1)}
 .v2 .now .it{color:#98A3AE;border-color:rgba(255,255,255,.06)}
 .v2 .now .mk{background:rgba(232,115,122,.12);color:#E8737A}
-.v2 .fri{background:linear-gradient(180deg,rgba(255,199,44,.07),rgba(255,199,44,.015) 60%),#0E141B;border:1px solid rgba(255,199,44,.5)}
+.v2 .fri{background:linear-gradient(180deg,rgba(255,199,44,.07),rgba(255,199,44,.015) 60%),linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,199,44,.5)}
 .v2 .fri .lbl{color:var(--gold);border-color:rgba(255,199,44,.3)}
 .v2 .fri .it{color:#fff;border-color:rgba(255,255,255,.07)}
 .v2 .fri .mk{background:var(--gold);color:#141005}
-.v2 .vsb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#070A10;border:1px solid rgba(255,255,255,.14);font:700 16px/1 var(--display);color:#8E9AA6}
+.v2 .vsb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#0D121A;border:1px solid rgba(255,255,255,.14);font:700 16px/1 var(--display);color:#8E9AA6}
 
 /* 3 · Paper: two light cards like a printed comparison, cool grey against white, navy text, gold ticks */
 .v3 h2 .r{color:#E8737A}.v3 h2 .g{color:var(--gold)}
@@ -75,7 +76,7 @@ h2,h3,p{margin:0}
 /* 4 · Framed pair (MK's red and green frames, grown up): both cards dark, a thin coloured frame and a top bar instead of
    neon borders; red for where you are, the page's own candle green for By Friday */
 .v4 h2 .r{color:#E8737A}.v4 h2 .g{color:var(--gold)}
-.v4 .card{border-radius:14px;background:#0C1016;border:1px solid}
+.v4 .card{border-radius:14px;background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid}
 .v4 .now{border-color:rgba(232,115,122,.38);box-shadow:inset 0 3px 0 #E8737A}
 .v4 .fri{border-color:rgba(46,189,133,.4);box-shadow:inset 0 3px 0 #2EBD85}
 .v4 .now .lbl{color:#E8737A;border-color:rgba(255,255,255,.08)}
@@ -108,14 +109,72 @@ h2,h3,p{margin:0}
 .v6 .now .it{color:#3A3F47;border-color:rgba(11,13,17,.1)}
 .v6 .now .mk{background:transparent;color:#D6404C}
 .v6 .now .mk svg{width:78%;height:78%}
-.v6 .fri{background:#0E141B;border:1px solid rgba(255,199,44,.55);row-gap:clamp(6px,1vh,10px)}
+.v6 .fri{background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,199,44,.55);row-gap:clamp(6px,1vh,10px)}
 .v6 .fri .lbl{color:var(--gold);border-color:rgba(255,199,44,.3)}
 .v6 .fri .it{color:#fff;font-weight:600;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding-left:14px;padding-right:16px}
 .v6 .fri .mk{background:var(--gold);color:#141005;font:800 13px/1 var(--display);width:30px;height:30px}
+
+/* 7 · Warm white and green (MK's white and green "Before / After Live Hypnosis"): Right Now on warm white under a red rule;
+   By Friday on a deep, quieter green with white rows and dark tick squares */
+.v7 h2 .r{color:#E8737A}.v7 h2 .g{color:var(--gold)}
+.v7 .card{border-radius:14px}
+.v7 .now{background:#F7F6F2}
+.v7 .now .lbl{color:#D6404C;border-bottom:2px solid #D6404C}
+.v7 .now .it{color:#3A3F47;border-color:rgba(11,13,17,.1)}
+.v7 .now .mk{background:transparent;color:#D6404C}
+.v7 .now .mk svg{width:78%;height:78%}
+.v7 .fri{background:#1E8C61;row-gap:10px}
+.v7 .fri .lbl{color:#fff;border-bottom:2px solid rgba(255,255,255,.85)}
+.v7 .fri .it{color:#0B0D11;font-weight:600;background:#FBFCFA;border:0;border-radius:10px;padding-left:14px;padding-right:16px}
+.v7 .fri .mk{background:#0B0D11;color:#3FD497}
+
+/* 8 · One frame, a gold divide (MK's split panel): a single slate frame split down the middle by a gold line; Right Now in
+   muted grey, By Friday in gold and white */
+.v8 h2 .r{color:#E8737A}.v8 h2 .g{color:var(--gold)}
+.v8 .vs{--gap:0px;background:radial-gradient(60% 50% at 85% 0%,rgba(255,199,44,.07),rgba(255,199,44,0) 70%),linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+.v8 .card{background:transparent;border-radius:0}
+.v8 .fri{border-left:2px solid var(--gold)}
+.v8 .now .lbl{color:#8E9AA6;border-color:rgba(255,255,255,.08)}
+.v8 .fri .lbl{color:var(--gold);border-color:rgba(255,255,255,.08)}
+.v8 .now .it{color:#98A3AE;border-color:rgba(255,255,255,.06)}
+.v8 .fri .it{color:#fff;font-weight:600;border-color:rgba(255,255,255,.06)}
+.v8 .now .mk{background:transparent;color:#6B7682}
+.v8 .fri .mk{background:transparent;color:var(--gold)}
+.v8 .mk svg{width:80%;height:80%}
+
+/* 9 · Tinted frames (MK's red and green frames with the glow at the top): slate cards in thin red and green frames, a faint
+   wash of the same colour from the top corner instead of a glow */
+.v9 h2 .r{color:#E8737A}.v9 h2 .g{color:var(--gold)}
+.v9 .card{border-radius:14px;border:1px solid}
+.v9 .now{background:radial-gradient(70% 45% at 15% 0%,rgba(232,115,122,.10),rgba(232,115,122,0) 70%),linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border-color:rgba(232,115,122,.45)}
+.v9 .fri{background:radial-gradient(70% 45% at 15% 0%,rgba(46,189,133,.10),rgba(46,189,133,0) 70%),linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border-color:rgba(46,189,133,.5)}
+.v9 .now .lbl{color:#E8737A;border-color:transparent}
+.v9 .fri .lbl{color:#2EBD85;border-color:transparent}
+.v9 .it{border-color:transparent}
+.v9 .now .it{color:#A3AEB9}
+.v9 .fri .it{color:#fff;font-weight:600}
+.v9 .now .mk{background:transparent;color:#E8737A}
+.v9 .fri .mk{background:transparent;color:#2EBD85}
+.v9 .mk svg{width:80%;height:80%}
+
+/* 10 · Header bars (MK's red and green title bars): slate cards with the label in a solid bar across the top, the colours
+   a step deeper and quieter */
+.v10 h2 .r{color:#E8737A}.v10 h2 .g{color:var(--gold)}
+.v10 .card{border-radius:14px;overflow:hidden;background:linear-gradient(90deg,#0E141B,#0D121A 45%,#0B0E14);border:1px solid rgba(255,255,255,.08)}
+.v10 .fri{border-color:rgba(46,189,133,.55)}
+.v10 .lbl{margin:calc(var(--py) * -1) calc(var(--px) * -1) 14px;padding:20px var(--px);border:0}
+.v10 .now .lbl{background:#B8414A;color:#fff}
+.v10 .fri .lbl{background:#1E8C61;color:#fff}
+.v10 .it{border-color:rgba(255,255,255,.06)}
+.v10 .now .it{color:#A3AEB9}
+.v10 .fri .it{color:#fff;font-weight:600}
+.v10 .now .mk{background:transparent;color:#E8737A}
+.v10 .fri .mk{background:transparent;color:#2EBD85}
+.v10 .mk svg{width:80%;height:80%}
 </style>
 </head>
 <body>
-<div class="rv"><span>Section 5 · 3 calmer versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a><a href="#v4"><b>4</b>Framed pair</a><a href="#v5"><b>5</b>Paper and gold</a><a href="#v6"><b>6</b>Paper and slate</a></div>
+<div class="rv"><span>Section 5 · 10 versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a><a href="#v4"><b>4</b>Framed pair</a><a href="#v5"><b>5</b>Paper and gold</a><a href="#v6"><b>6</b>Paper and slate</a><a href="#v7"><b>7</b>White and green</a><a href="#v8"><b>8</b>Gold divide</a><a href="#v9"><b>9</b>Tinted frames</a><a href="#v10"><b>10</b>Header bars</a></div>
 <main data-root></main>
 <script>
 (() => {
@@ -130,6 +189,10 @@ h2,h3,p{margin:0}
     ['v4', 'Framed pair', 'From MK’s red and green frames, grown up: both cards dark, a thin coloured frame with a bar along the top instead of neon borders; red for where you are, the page’s own candle green for By Friday.', ''],
     ['v5', 'Paper and gold, numbered', 'From MK’s white and gold: Right Now on warm white under a black rule, By Friday on a flat, quieter gold with white rows numbered 01 to 06.', '', true],
     ['v6', 'Paper and slate, numbered', 'From MK’s white and dark: Right Now on warm white, By Friday on the day cards’ slate in a thin gold frame, rows numbered 01 to 06 in gold squares.', '', true],
+    ['v7', 'Warm white and green', 'From MK’s white and green Before / After: Right Now on warm white under a red rule, By Friday on a deeper, quieter green with white rows and dark tick squares.', ''],
+    ['v8', 'One frame, a gold divide', 'From MK’s split panel: one slate frame split down the middle by a gold line; Right Now in muted grey, By Friday in gold and white.', ''],
+    ['v9', 'Tinted frames', 'From MK’s red and green frames: slate cards in thin red and green frames with a faint wash of the same colour from the top corner instead of a glow.', ''],
+    ['v10', 'Header bars', 'From MK’s red and green title bars: slate cards with the label in a solid bar across the top, the colours a step deeper and quieter.', ''],
   ];
   const item = (mk, t) => `<div class="it"><span class="mk">${mk}</span><span>${t}</span></div>`;
   document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge, num], k) => `<section class="vsec ${id}" id="${id}">
