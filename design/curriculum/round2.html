@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day line, Outcomes, Compare · 3 versions each</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<style>
+/* Round 2 (7 Oct 2026): the day line, section 4 and section 5, three versions each, on the MK pages' rules:
+   no glow, no spaced capitals, marks drawn as SVG (not ✓/✕ glyphs), boxes that read as order, rows and
+   headings levelled across a row, one shared left edge. The page's own palette and fonts throughout. */
+:root{--bg:#05070A;--bg2:#070A10;--gold:#FFC72C;--ink:#141005;--red:#F2777B;--hair:rgba(255,255,255,.08);
+  --read:#E6ECF2;--soft:#A3AEB9;--mute:#8E9AA6;--card:linear-gradient(135deg,#12110B,#0B0D11 50%,#090B0F);
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased}
+h2,h3,p,ul,li{margin:0;padding:0}ul{list-style:none}
+.gold{color:var(--gold)}.muted{color:var(--mute)}
+svg{display:block}
+
+/* review chrome */
+.rv{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:12px 24px;background:rgba(5,7,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.rv__t{font:700 14px/1 var(--sans);color:var(--mute);white-space:nowrap}
+.rv nav{display:flex;gap:6px;flex-wrap:wrap}
+.rv a{padding:8px 12px;border-radius:999px;border:1px solid var(--hair);color:#fff;text-decoration:none;font:600 13px/1 var(--sans)}
+.rv a b{color:var(--gold);margin-right:6px}
+.rv a:hover{border-color:rgba(255,199,44,.6)}
+.v{padding:88px 24px 104px;border-bottom:1px solid var(--hair)}
+.v:nth-child(even){background:var(--bg2)}
+.tag{max-width:1040px;margin:0 auto 40px;display:flex;gap:12px;align-items:baseline;font:500 15px/1.4 var(--sans);color:var(--soft)}
+.tag b{flex:none;padding:7px 11px;border-radius:6px;background:var(--gold);color:var(--ink);font:800 14px/1 var(--display)}
+.head{max-width:960px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.h2{font:800 clamp(34px,3.5vw,52px)/1.08 var(--display);letter-spacing:-.028em;text-wrap:balance}
+.lede{font:400 18px/1.7 var(--sans);color:#C9D3DC;max-width:780px;text-wrap:pretty}
+.wrap{max-width:1040px;margin:56px auto 0}
+
+/* marks */
+.ok,.x{flex:none;display:grid;place-items:center;border-radius:6px}
+.ok{background:var(--gold);color:var(--ink)}
+.x{background:rgba(242,119,123,.13);color:var(--red)}
+.ok svg,.x svg{width:62%;height:62%}
+
+/* ---------- night card, the page's, without its glow ---------- */
+.rows{display:flex;flex-direction:column;gap:18px}
+.night{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:14px 52px;align-items:start;padding:30px 34px;border-radius:18px;background:linear-gradient(90deg,#12110B,#0B0D11 42%,#090B0F);border:1px solid var(--hair)}
+.night::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;background:linear-gradient(180deg,rgba(255,199,44,0),#FFC72C 30%,#FFC72C 70%,rgba(255,199,44,0))}
+.when{display:flex;flex-direction:column;gap:14px;min-width:0}
+.title{font:800 clamp(21px,1.9vw,26px)/1.14 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.body{font:500 17.5px/1.6 var(--sans);max-width:58ch;padding-top:2px;text-wrap:pretty}
+
+/* D1: a solid gold day tag, date in white, time in grey, hairline dividers */
+.d1{display:flex;align-items:center;gap:12px;font:600 15px/1 var(--sans)}
+.d1 b{padding:7px 10px 6px;border-radius:6px;background:var(--gold);color:var(--ink);font:800 15px/1 var(--display)}
+.d1 i{width:1px;height:14px;background:rgba(255,255,255,.2)}
+.d1 em{font-style:normal;font-weight:500;color:var(--soft)}
+
+/* D2: the number as the mark, date and time stacked beside it */
+.d2{display:grid;grid-template-columns:auto 1px auto;justify-content:start;align-items:center;gap:14px}
+.d2 .n{display:flex;flex-direction:column;gap:3px}
+.d2 .n small{font:600 13px/1 var(--sans);color:var(--mute)}
+.d2 .n b{font:800 38px/.9 var(--display);letter-spacing:-.03em;color:var(--gold)}
+.d2 i{height:40px;background:rgba(255,255,255,.14)}
+.d2 .dt{display:flex;flex-direction:column;gap:6px;font:700 15px/1 var(--sans)}
+.d2 .dt em{font-style:normal;font-weight:500;color:var(--soft)}
+
+/* D3: the day in gold over the title, the date in a bar across the card's foot (the Golden Circle day cards) */
+.night.f{padding-bottom:0;row-gap:0}
+.d3{font:800 17px/1 var(--display);color:var(--gold)}
+.night.f .body{padding-bottom:26px}
+.foot{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:0 -34px;padding:14px 34px;border-top:1px solid var(--hair);background:rgba(255,255,255,.025);border-radius:0 0 18px 18px;font:600 15px/1 var(--sans)}
+.foot i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.foot em{font-style:normal;font-weight:500;color:var(--soft)}
+
+/* ---------- section 4 ---------- */
+/* O1: two across, heads levelled across each row (subgrid), the check beside the head, the text from the card's left edge */
+.o1{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.o1 .c{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:12px;padding:26px 28px;border-radius:16px;background:var(--card);border:1px solid var(--hair)}
+.o1 .hd{display:flex;gap:14px;align-items:center}
+.o1 .ok{width:30px;height:30px}
+.o1 h3{font:800 21px/1.2 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.o1 p{font:500 16.5px/1.6 var(--sans);color:var(--read);text-wrap:pretty}
+
+/* O2: six rows like the MK Who points: gold bar, head in a fixed column, text beside it */
+.o2{display:flex;flex-direction:column;gap:10px}
+.o2 .r{position:relative;display:grid;grid-template-columns:330px minmax(0,1fr);gap:32px;align-items:center;padding:24px 30px 24px 34px;border-radius:12px;background:#0B0D11;border:1px solid var(--hair);overflow:hidden}
+.o2 .r::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold)}
+.o2 .hd{display:flex;gap:14px;align-items:center}
+.o2 .ok{width:28px;height:28px}
+.o2 h3{font:800 21px/1.2 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.o2 p{font:500 16.5px/1.6 var(--sans);color:var(--read);text-wrap:pretty}
+
+/* O3: three across, the ticket-card frame (gold top line), check, head, text; heads levelled (subgrid) */
+.o3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.o3 .c{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:14px;padding:26px 26px 28px;border-radius:14px;background:#0B0D11;border:1px solid var(--hair);border-top:3px solid var(--gold)}
+.o3 .ok{width:30px;height:30px}
+.o3 h3{font:800 21px/1.2 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.o3 p{font:500 16px/1.6 var(--sans);color:var(--read);text-wrap:pretty}
+
+/* ---------- section 5 ---------- */
+.lbl{font:800 24px/1 var(--display);letter-spacing:-.02em}
+.lbl.now{color:var(--red)}.lbl.fri{color:var(--gold)}
+.it{display:flex;gap:12px;align-items:flex-start;font:500 17px/1.5 var(--sans)}
+.it .ok,.it .x{width:24px;height:24px;margin-top:1px}
+.now-t{color:var(--soft)}
+
+/* C1: two cards side by side, item n level with item n across both (one grid, subgrid rows) */
+.c1{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto repeat(6,auto);column-gap:16px}
+.c1 .col{display:grid;grid-row:1/span 7;grid-template-rows:subgrid;row-gap:18px;padding:30px 32px 34px;border-radius:16px;background:#0B0D11;border:1px solid var(--hair)}
+.c1 .col.fri{background:var(--card);border-top:3px solid var(--gold)}
+.c1 .lbl{padding-bottom:6px}
+
+/* C2: one frame, a row per pair, the change read left to right */
+.c2{border-radius:16px;border:1px solid var(--hair);background:#0B0D11;overflow:hidden}
+.c2 .row{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);align-items:center;padding:0 30px;border-top:1px solid var(--hair)}
+.c2 .row:first-child{border-top:0;background:rgba(255,255,255,.025)}
+.c2 .row > div{padding:20px 0}
+.c2 .row:first-child > div{padding:22px 0}
+.c2 .arr{display:grid;place-items:center;color:var(--gold)}
+.c2 .arr svg{width:20px;height:20px}
+
+/* C3: six turnarounds, each its own card: where you are, then where you'll be */
+.c3k{display:flex;gap:24px;justify-content:center;margin-bottom:22px;font:700 16px/1 var(--sans)}
+.c3k span{display:flex;gap:10px;align-items:center}
+.c3k .ok,.c3k .x{width:22px;height:22px}
+.c3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.c3 .c{display:grid;grid-row:span 2;grid-template-rows:subgrid;padding:0;border-radius:14px;background:#0B0D11;border:1px solid var(--hair);overflow:hidden}
+.c3 .c > div{padding:22px 24px}
+.c3 .c > div + div{border-top:1px solid var(--hair);background:var(--card)}
+</style>
+</head>
+<body>
+<div class="rv"><span class="rv__t">Round 2 · 3 versions each</span><nav data-nav></nav></div>
+<main data-root></main>
+<script>
+(() => {
+  const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CROSS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>';
+  const ARROW = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ok = `<span class="ok">${CHECK}</span>`, x = `<span class="x">${CROSS}</span>`;
+
+  /* The page's copy, word for word. */
+  const NIGHTS = [
+    ['01', 'Mon, Nov 2', 'The DRT Levels: Spot the Real ICT Setups in Under a Minute', 'Night one you get the backbone of DRT: the 25, 50 and 75 levels, and the sessions that matter. You’ll learn to see in seconds whether an order block or FVG is sitting in the right place at the right time, and you’ll be clearing the dead setups off your chart before you go to bed.'],
+    ['02', 'Tue, Nov 3', 'The 3 DRT Checks for a Winning Trade', 'The three conditions DRT runs before every trade: higher time frame bias, a valid dealing range, and a confirmed change in state of delivery. All three line up, you take it. One missing, you wait. You’ll also get my DRT rule for a missed entry, so you never chase price again.'],
+    ['03', 'Wed, Nov 4', 'The DRT Morning Routine: Know Your One Trade Before the Open', 'My exact pre open routine, start to finish: read where price is reaching, grade the dealing range, rank every setup by real reward, and sit down knowing your one DRT trade before the market opens. This is the night you go from fifteen trades a week to one trade a session.'],
+    ['04', 'Thu, Nov 5', 'Watch Me Trade DRT Live, Candle by Candle', 'I run the full DRT filter on real charts in front of you and explain every decision as it happens: what qualifies, what makes me sit on my hands, and the exact invalidation that tells me I’m wrong before it costs a penny. This is the night DRT clicks.'],
+    ['05', 'Fri, Nov 6', 'Your Own DRT Trading Plan, Built Live, With Me', 'We build your DRT plan together around your life: the sessions you can trade, the pairs and style that suit you, and the journaling routine that turns your own data into confidence. You leave with it written down, simple enough to fit on the back of a business card, and you run it Monday morning.'],
+  ];
+  const OUT = [
+    ['A filter that shows you only the A+ setups', 'Fifteen order blocks and FVGs on your chart, and in under a minute you know which ones have real odds behind them and which are traps. You only risk money on A+ trades from now on.'],
+    ['Your daily bias called before the open', 'You read where price is reaching before the market opens and know buy day or sell day, with a reason behind it. You’re positioned before the move instead of chasing it.'],
+    ['The confidence to pull the trigger', 'When the 3 DRT checks line up, the decision is made for you. No waiting for one more candle, no watching your own setup run without you. You click, you manage, you trust the process.'],
+    ['Consistency you can count on', 'Same process, same way, every session. Your results finally match the hours you put in, and the account grows week after week instead of green one week, red the next.'],
+    ['Pass the prop challenge and keep the account', 'A challenge is just another trading week when you only take A+ trades with defined risk. Pass it, get funded, keep it, and scale into account sizes you could never afford on your own.'],
+    ['Time and financial freedom, on your terms', 'A second income around the job first. Then an income that matches it. Then, for the ones who want it, the day you hand in your notice and trade for a living, with your mornings and evenings back.'],
+  ];
+  const NOW = ['Fifteen setups screaming at you and no way to tell which one is real', 'A new ICT model every week, back to square one every Monday', 'Guessing daily bias and finding out which way it went after the move', 'Three hours on the charts and a flat account to show for it', 'Profitable some weeks, can’t make it stick', 'Wondering if you’re just not built for this'];
+  const FRI = ['One filter that tells you which ICT setup to take and which to skip, in under a minute', 'One process you run every session, so every week builds on the last', 'Your bias called before the open, with a reason you can say out loud', 'One trade, 30 minutes, laptop shut, evenings back', 'Green weeks that stack, the kind you pass a challenge with and keep', 'A written plan in your hand and the calm of finally knowing why'];
+
+  const H3 = '<h2 class="h2">Here’s Everything We’ll Cover In The <span class="gold">5 Day Challenge</span></h2><p class="lede">Sixty minutes a night, live on Zoom, 7 PM EST. Each night you get one piece of the DRT process, and by Friday you’re gonna be running the whole thing on your own charts.</p>';
+  const H4 = '<h2 class="h2">What You’ll Walk Away With <span class="gold">After 5 Days</span></h2>';
+  const H5 = '<h2 class="h2">Your ICT Trading <span class="muted">Right Now</span> vs. <span class="gold">After The 5-Day Challenge</span></h2>';
+
+  const night = (when, n, foot = '') => `<div class="night${foot ? ' f' : ''}"><div class="when">${when(n)}<h3 class="title">${n[2]}</h3></div><p class="body">${n[3]}</p>${foot}</div>`;
+  const rows = (when, foot) => `<div class="rows">${NIGHTS.map((n) => night(when, n, foot ? foot(n) : '')).join('')}</div>`;
+  const it = (mark, t, cls = '') => `<div class="it">${mark}<span class="${cls}">${t}</span></div>`;
+
+  const V = [
+    ['d1', 'Day line · 1', 'Gold tag', 'The day as a solid gold tag, the date in white, the time in grey, hairline dividers. No glow, no spaced capitals.', H3,
+      rows((n) => `<div class="d1"><b>Day ${n[0]}</b><i></i>${n[1]}<i></i><em>7 PM EST</em></div>`)],
+    ['d2', 'Day line · 2', 'Number first', 'The day number is the mark, big and gold, with the date and time stacked beside it like a calendar entry.', H3,
+      rows((n) => `<div class="d2"><div class="n"><small>Day</small><b>${n[0]}</b></div><i></i><div class="dt">${n[1]}<em>7 PM EST</em></div></div>`)],
+    ['d3', 'Day line · 3', 'Date in the foot', 'The day in plain gold over the title; the date and time move to a bar across the card’s foot, as on the Golden Circle’s day cards.', H3,
+      rows((n) => `<div class="d3">Day ${n[0]}</div>`, (n) => `<div class="foot">${n[1]}<i></i><em>7 PM EST</em></div>`)],
+    ['o1', 'Section 4 · 1', 'Two across, levelled', 'The same grid, flat: a drawn check beside each head, heads levelled across each row, the text from the card’s left edge. No glow, no lift on hover.', H4,
+      `<div class="o1">${OUT.map(([h, p]) => `<div class="c"><div class="hd">${ok}<h3>${h}</h3></div><p>${p}</p></div>`).join('')}</div>`],
+    ['o2', 'Section 4 · 2', 'Rows, like the Who points', 'Six full-width rows with a gold bar: the promise in a fixed column, what it means beside it, so every line starts on the same edge.', H4,
+      `<div class="o2">${OUT.map(([h, p]) => `<div class="r"><div class="hd">${ok}<h3>${h}</h3></div><p>${p}</p></div>`).join('')}</div>`],
+    ['o3', 'Section 4 · 3', 'Three across, ticket frame', 'Three by two in the ticket card’s frame (gold top line), check, head, text; heads levelled across each row.', H4,
+      `<div class="o3">${OUT.map(([h, p]) => `<div class="c">${ok}<h3>${h}</h3><p>${p}</p></div>`).join('')}</div>`],
+    ['c1', 'Section 5 · 1', 'Two cards, level rows', 'Two cards side by side; each Right Now line sits level with the By Friday line that answers it. Drawn marks, no glow.', H5,
+      `<div class="c1"><div class="col"><h3 class="lbl now">Right Now</h3>${NOW.map((t) => it(x, t, 'now-t')).join('')}</div><div class="col fri"><h3 class="lbl fri">By Friday</h3>${FRI.map((t) => it(ok, t)).join('')}</div></div>`],
+    ['c2', 'Section 5 · 2', 'Pair by pair', 'One frame, one row per pair, read left to right with a gold arrow between: the problem, then what replaces it.', H5,
+      `<div class="c2"><div class="row"><div><h3 class="lbl now">Right Now</h3></div><span></span><div><h3 class="lbl fri">By Friday</h3></div></div>${NOW.map((t, i) => `<div class="row"><div>${it(x, t, 'now-t')}</div><span class="arr">${ARROW}</span><div>${it(ok, FRI[i])}</div></div>`).join('')}</div>`],
+    ['c3', 'Section 5 · 3', 'Six turnarounds', 'Each pair in its own card: where you are on top, where you’ll be by Friday underneath, levelled across each row.', H5,
+      `<div class="c3k"><span>${x}<span class="lbl now" style="font-size:20px">Right Now</span></span><span>${ok}<span class="lbl fri" style="font-size:20px">By Friday</span></span></div><div class="c3">${NOW.map((t, i) => `<div class="c"><div>${it(x, t, 'now-t')}</div><div>${it(ok, FRI[i])}</div></div>`).join('')}</div>`],
+  ];
+
+  const nav = document.querySelector('[data-nav]');
+  document.querySelector('[data-root]').innerHTML = V.map(([id, label, name, note, head, html]) => {
+    nav.insertAdjacentHTML('beforeend', `<a href="#${id}"><b>${label.replace(' · ', ' ')}</b>${name}</a>`);
+    return `<section class="v" id="${id}"><div class="tag"><b>${label}</b><span><strong style="color:#fff">${name}.</strong> ${note}</span></div><header class="head">${head}</header><div class="wrap">${html}</div></section>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>
