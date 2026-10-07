@@ -71,10 +71,51 @@ h2,h3,p{margin:0}
 .v3 .fri .lbl{color:#0B1B33;border-color:var(--gold);border-bottom-width:2px}
 .v3 .fri .it{color:#0B1220;font-weight:600;border-color:rgba(11,18,32,.08)}
 .v3 .fri .mk{background:#0B1B33;color:var(--gold)}
+
+/* 4 · Framed pair (MK's red and green frames, grown up): both cards dark, a thin coloured frame and a top bar instead of
+   neon borders; red for where you are, the page's own candle green for By Friday */
+.v4 h2 .r{color:#E8737A}.v4 h2 .g{color:var(--gold)}
+.v4 .card{border-radius:14px;background:#0C1016;border:1px solid}
+.v4 .now{border-color:rgba(232,115,122,.38);box-shadow:inset 0 3px 0 #E8737A}
+.v4 .fri{border-color:rgba(46,189,133,.4);box-shadow:inset 0 3px 0 #2EBD85}
+.v4 .now .lbl{color:#E8737A;border-color:rgba(255,255,255,.08)}
+.v4 .fri .lbl{color:#2EBD85;border-color:rgba(255,255,255,.08)}
+.v4 .now .it{color:#A3AEB9;border-color:rgba(255,255,255,.06)}
+.v4 .fri .it{color:#fff;border-color:rgba(255,255,255,.06)}
+.v4 .now .mk{background:rgba(232,115,122,.12);color:#E8737A}
+.v4 .fri .mk{background:rgba(46,189,133,.14);color:#2EBD85}
+
+/* 5 · Paper and gold, numbered (MK's white and gold): Right Now on warm white with a black rule, By Friday on a flat,
+   quieter gold with white numbered rows */
+.v5 h2 .r{color:#E8737A}.v5 h2 .g{color:var(--gold)}
+.v5 .card{border-radius:14px}
+.v5 .now{background:#F7F6F2}
+.v5 .now .lbl{color:#0B0D11;border-bottom:2px solid #0B0D11}
+.v5 .now .it{color:#3A3F47;border-color:rgba(11,13,17,.1)}
+.v5 .now .mk{background:transparent;color:#D6404C}
+.v5 .now .mk svg{width:78%;height:78%}
+.v5 .fri{background:#F2C14E;row-gap:clamp(6px,1vh,10px)}
+.v5 .fri .lbl{color:#0B0D11;border-bottom:2px solid rgba(11,13,17,.85)}
+.v5 .fri .it{color:#0B0D11;font-weight:600;background:#FFFDF6;border:0;border-radius:10px;padding-left:14px;padding-right:16px}
+.v5 .fri .mk{background:#0B0D11;color:var(--gold);font:800 13px/1 var(--display);width:30px;height:30px}
+
+/* 6 · Paper and slate, numbered (MK's white and dark): Right Now on warm white, By Friday on the day cards' slate in a
+   thin gold frame, dark numbered rows with gold number squares */
+.v6 h2 .r{color:#E8737A}.v6 h2 .g{color:var(--gold)}
+.v6 .card{border-radius:14px}
+.v6 .now{background:#F7F6F2}
+.v6 .now .lbl{color:#0B0D11;border-bottom:2px solid #0B0D11}
+.v6 .now .it{color:#3A3F47;border-color:rgba(11,13,17,.1)}
+.v6 .now .mk{background:transparent;color:#D6404C}
+.v6 .now .mk svg{width:78%;height:78%}
+.v6 .fri{background:#0E141B;border:1px solid rgba(255,199,44,.55);row-gap:clamp(6px,1vh,10px)}
+.v6 .fri .lbl{color:var(--gold);border-color:rgba(255,199,44,.3)}
+.v6 .fri .it{color:#fff;font-weight:600;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding-left:14px;padding-right:16px}
+.v6 .fri .mk{background:var(--gold);color:#141005;font:800 13px/1 var(--display);width:30px;height:30px}
 </style>
 </head>
 <body>
-<div class="rv"><span>Section 5 · 3 calmer versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a></div>
+<div class="rv"><span>Section 5 · 3 calmer versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a><a href="#v4"><b>4</b>Framed pair</a><a href="#v5"><b>5</b>Paper and gold</a><a href="#v6"><b>6</b>Paper and slate</a></div>
 <main data-root></main>
 <script>
 (() => {
@@ -86,14 +127,17 @@ h2,h3,p{margin:0}
     ['v1', 'Slate and ivory', 'Right Now sits back in the day cards’ slate; By Friday is the bright card, on ivory instead of gold fill. Gold is the only accent: the ticks and the heading. No VS badge, no highlighter box.', ''],
     ['v2', 'All dark, gold frame', 'Both cards in the page’s own dark. By Friday is set apart by a gold hairline and a faint gold wash, white text and gold ticks. A quiet vs in a hairline circle.', '<div class="vsb" aria-hidden="true">vs</div>'],
     ['v3', 'Paper', 'Two light cards side by side like a printed comparison: cool grey for Right Now, white for By Friday, navy type, gold ticks in navy squares. The most report-like.', ''],
+    ['v4', 'Framed pair', 'From MK’s red and green frames, grown up: both cards dark, a thin coloured frame with a bar along the top instead of neon borders; red for where you are, the page’s own candle green for By Friday.', ''],
+    ['v5', 'Paper and gold, numbered', 'From MK’s white and gold: Right Now on warm white under a black rule, By Friday on a flat, quieter gold with white rows numbered 01 to 06.', '', true],
+    ['v6', 'Paper and slate, numbered', 'From MK’s white and dark: Right Now on warm white, By Friday on the day cards’ slate in a thin gold frame, rows numbered 01 to 06 in gold squares.', '', true],
   ];
   const item = (mk, t) => `<div class="it"><span class="mk">${mk}</span><span>${t}</span></div>`;
-  document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge], k) => `<section class="vsec ${id}" id="${id}">
+  document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge, num], k) => `<section class="vsec ${id}" id="${id}">
     <div class="note"><b>${k + 1}</b><span><strong style="color:#fff">${name}.</strong> ${note}</span></div>
     <h2>Your ICT Trading <span class="r">Right Now</span> vs. <span class="g">After The 5-Day Challenge</span></h2>
     <div class="vs">
       <div class="card now"><h3 class="lbl">Right Now</h3>${NOW.map((t) => item(CROSS, t)).join('')}</div>
-      <div class="card fri"><h3 class="lbl">By Friday</h3>${FRI.map((t) => item(CHECK, t)).join('')}</div>
+      <div class="card fri"><h3 class="lbl">By Friday</h3>${FRI.map((t, i) => item(num ? `0${i + 1}` : CHECK, t)).join('')}</div>
       ${badge}
     </div>
     <div class="cta"><a class="btn" href="#">Join the 5 Day Challenge</a><small>Sixty minutes a night.</small></div>
