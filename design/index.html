@@ -63,35 +63,42 @@ a{color:#FFC72C;text-decoration:none} a:hover{color:#fff}
 .mmt-stacks .mmt-night{position:sticky}
 .mmt-stacks .mmt-night:nth-child(1){top:86px}.mmt-stacks .mmt-night:nth-child(2){top:102px}.mmt-stacks .mmt-night:nth-child(3){top:118px}.mmt-stacks .mmt-night:nth-child(4){top:134px}.mmt-stacks .mmt-night:nth-child(5){top:150px}
 .mmt-when{display:flex;flex-direction:column;gap:12px;min-width:0}
-.mmt-day{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:700 15px/1 Inter,sans-serif;color:#fff;letter-spacing:.005em}
-.mmt-day b{font:800 15px/1 'Bricolage Grotesque',sans-serif;letter-spacing:.1em;color:#FFC72C;text-shadow:0 0 14px rgba(255,199,44,.35);transition:text-shadow .5s}
-.mmt-night.is-on .mmt-day b{text-shadow:0 0 18px rgba(255,199,44,.85),0 0 2px rgba(255,199,44,.6)}
-.mmt-day i{width:4px;height:4px;border-radius:50%;background:rgba(255,199,44,.75)}
-.mmt-day em{font-style:normal;font-weight:700;color:#FFC72C}
+.mmt-day{display:grid;grid-template-columns:auto 1px auto;justify-content:start;align-items:center;gap:14px}
+.mmt-day__n{display:flex;flex-direction:column;gap:3px}
+.mmt-day__n small{font:700 14px/1 'Bricolage Grotesque',sans-serif;color:#A3AEB9}
+.mmt-day__n b{font:800 42px/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:#FFC72C}
+.mmt-day i{width:1px;height:44px;background:rgba(255,255,255,.14)}
+.mmt-day__dt{display:flex;flex-direction:column;gap:7px;font:800 19px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.01em;color:#fff}
+.mmt-day__dt em{font-style:normal;color:#A3AEB9}
 .mmt-title{margin:0;font:800 clamp(21px,1.9vw,26px)/1.14 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;color:#fff;text-wrap:balance}
 .mmt-body{margin:0;min-width:0;max-width:58ch;padding-top:2px;font:500 clamp(16px,1.25vw,17.5px)/1.6 Inter,sans-serif;color:#fff;text-wrap:pretty}
 /* Section 04 · Outcomes: six compact cards */
-.mmt-out{max-width:1040px;margin:clamp(40px,5vw,56px) auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.mmt-out__card{box-sizing:border-box;position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px 16px;align-items:start;padding:clamp(20px,2.2vw,26px) clamp(20px,2.4vw,28px);border-radius:18px;background:linear-gradient(135deg,#12110B,#0B0D11 50%,#090B0F);border:1px solid rgba(255,255,255,.08);transition:transform .3s,border-color .3s,box-shadow .3s}
-.mmt-out__card:hover{transform:translateY(-3px);border-color:rgba(255,199,44,.45);box-shadow:0 0 70px -30px rgba(255,199,44,.55)}
-.mmt-tick{grid-row:1/span 2;box-sizing:border-box;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#FFC72C;color:#141005;font:800 15px/1 Inter,sans-serif;box-shadow:0 0 22px -4px rgba(255,199,44,.8)}
-.mmt-out__card h3{margin:0;align-self:center;min-height:34px;display:flex;align-items:center;font:800 clamp(18px,1.5vw,21px)/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.015em;color:#fff;text-wrap:balance}
-.mmt-out__card p{margin:0;grid-column:2;font:500 clamp(15px,1.15vw,16.5px)/1.58 Inter,sans-serif;color:#E6ECF2;text-wrap:pretty}
-/* Section 05 · Compare: one panel, two columns, gold edge on the After side */
-.mmt-cmp{box-sizing:border-box;max-width:1040px;margin:clamp(40px,5vw,56px) auto 0;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#0A0C10}
-.mmt-cmp__col{box-sizing:border-box;position:relative;padding:clamp(24px,2.8vw,36px) clamp(22px,2.8vw,36px)}
-.mmt-cmp__col--after{background:linear-gradient(90deg,#14130B,#0C0E11 60%);box-shadow:inset 0 0 90px -50px rgba(255,199,44,.55)}
-.mmt-cmp__col--after::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:3px;border-radius:3px;background:linear-gradient(180deg,rgba(255,199,44,0),#FFC72C 30%,#FFC72C 70%,rgba(255,199,44,0));box-shadow:0 0 26px 3px rgba(255,199,44,.45)}
-.mmt-cmp__lbl{margin:0 0 18px;font:800 12px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8E9AA6}
-.mmt-cmp__lbl--after{color:#FFC72C;text-shadow:0 0 14px rgba(255,199,44,.5)}
-.mmt-cmp ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.mmt-cmp li{display:flex;gap:12px;align-items:flex-start;font:500 clamp(15px,1.15vw,16.5px)/1.5 Inter,sans-serif;color:#A3AEB9}
-.mmt-cmp__col--after li{color:#fff}
-.mmt-x,.mmt-ok{flex:none;box-sizing:border-box;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font:800 11px/1 Inter,sans-serif}
-.mmt-x{background:rgba(242,119,123,.14);color:#F2777B}
-.mmt-ok{background:#FFC72C;color:#141005;box-shadow:0 0 14px -2px rgba(255,199,44,.7)}
+.mmt-out{max-width:1040px;margin:clamp(40px,5vw,56px) auto 0;display:flex;flex-direction:column;gap:10px}
+.mmt-out__card{box-sizing:border-box;position:relative;display:grid;grid-template-columns:330px minmax(0,1fr);gap:32px;align-items:center;padding:24px 30px 24px 34px;border-radius:12px;background:#0B0D11;border:1px solid rgba(255,255,255,.08);overflow:hidden}
+.mmt-out__card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#FFC72C}
+.mmt-out__hd{display:flex;gap:14px;align-items:center}
+.mmt-tick{flex:none;width:28px;height:28px;border-radius:6px;display:grid;place-items:center;background:#FFC72C;color:#141005}
+.mmt-tick svg{width:62%;height:62%;display:block}
+.mmt-out__card h3{margin:0;font:800 21px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.015em;color:#fff;text-wrap:balance}
+.mmt-out__card p{margin:0;font:500 16.5px/1.6 Inter,sans-serif;color:#E6ECF2;text-wrap:pretty}
+/* Section 05 · Compare: one frame, a row per pair, the problem then what replaces it (7 Oct 2026) */
+.mmt-cmp{box-sizing:border-box;max-width:1040px;margin:clamp(40px,5vw,56px) auto 0;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:#0B0D11;overflow:hidden}
+.mmt-cmp__row{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);align-items:center;padding:0 30px;border-top:1px solid rgba(255,255,255,.08)}
+.mmt-cmp__row:first-child{border-top:0;background:rgba(255,255,255,.025)}
+.mmt-cmp__row > div{padding:20px 0}
+.mmt-cmp__row:first-child > div{padding:22px 0}
+.mmt-cmp__lbl{margin:0;font:800 24px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;color:#F2777B}
+.mmt-cmp__lbl--after{color:#FFC72C}
+.mmt-cmp__arr{display:grid;place-items:center;color:#FFC72C}
+.mmt-cmp__arr svg{width:20px;height:20px;display:block}
+.mmt-cmp__it{display:flex;gap:12px;align-items:flex-start;font:500 17px/1.5 Inter,sans-serif;color:#fff}
+.mmt-cmp__it--now{color:#A3AEB9}
+.mmt-x,.mmt-ok{flex:none;width:24px;height:24px;margin-top:1px;border-radius:6px;display:grid;place-items:center}
+.mmt-x{background:rgba(242,119,123,.13);color:#F2777B}
+.mmt-ok{background:#FFC72C;color:#141005}
+.mmt-x svg,.mmt-ok svg{width:62%;height:62%;display:block}
 @media (max-width:900px){.mmt-night{grid-template-columns:1fr;gap:12px}.mmt-body{max-width:none;padding-top:0}}
-@media (max-width:760px){.mmt-out{grid-template-columns:1fr}.mmt-cmp{grid-template-columns:1fr}.mmt-cmp__col--after{border-top:1px solid rgba(255,199,44,.25)}.mmt-cmp__col--after::before{display:none}}
+@media (max-width:760px){.mmt-out__card{grid-template-columns:1fr;gap:12px;padding:22px 20px 22px 24px}.mmt-cmp__row{grid-template-columns:1fr;padding:0 20px}.mmt-cmp__arr{display:none}.mmt-cmp__row > div{padding:12px 0}.mmt-cmp__row:first-child{display:none}}
 @media (max-width:640px){.mmt-night{padding:22px 18px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
@@ -179,35 +186,35 @@ a{color:#FFC72C;text-decoration:none} a:hover{color:#fff}
 <div class="mmt-rows">
   <div class="mmt-night">
     <div class="mmt-when">
-      <div class="mmt-day"><b>DAY 01</b><i></i>{{ d1 }}<i></i><em>7 PM EST</em></div>
+      <div class="mmt-day"><div class="mmt-day__n"><small>Day</small><b>01</b></div><i></i><div class="mmt-day__dt">{{ d1 }}<em>7 PM EST</em></div></div>
       <h3 class="mmt-title">The DRT Levels: Spot the Real ICT Setups in Under a Minute</h3>
     </div>
     <p class="mmt-body">Night one you get the backbone of DRT: the 25, 50 and 75 levels, and the sessions that matter. You’ll learn to see in seconds whether an order block or FVG is sitting in the right place at the right time, and you’ll be clearing the dead setups off your chart before you go to bed.</p>
   </div>
   <div class="mmt-night">
     <div class="mmt-when">
-      <div class="mmt-day"><b>DAY 02</b><i></i>{{ d2 }}<i></i><em>7 PM EST</em></div>
+      <div class="mmt-day"><div class="mmt-day__n"><small>Day</small><b>02</b></div><i></i><div class="mmt-day__dt">{{ d2 }}<em>7 PM EST</em></div></div>
       <h3 class="mmt-title">The 3 DRT Checks for a Winning Trade</h3>
     </div>
     <p class="mmt-body">The three conditions DRT runs before every trade: higher time frame bias, a valid dealing range, and a confirmed change in state of delivery. All three line up, you take it. One missing, you wait. You’ll also get my DRT rule for a missed entry, so you never chase price again.</p>
   </div>
   <div class="mmt-night">
     <div class="mmt-when">
-      <div class="mmt-day"><b>DAY 03</b><i></i>{{ d3 }}<i></i><em>7 PM EST</em></div>
+      <div class="mmt-day"><div class="mmt-day__n"><small>Day</small><b>03</b></div><i></i><div class="mmt-day__dt">{{ d3 }}<em>7 PM EST</em></div></div>
       <h3 class="mmt-title">The DRT Morning Routine: Know Your One Trade Before the Open</h3>
     </div>
     <p class="mmt-body">My exact pre open routine, start to finish: read where price is reaching, grade the dealing range, rank every setup by real reward, and sit down knowing your one DRT trade before the market opens. This is the night you go from fifteen trades a week to one trade a session.</p>
   </div>
   <div class="mmt-night">
     <div class="mmt-when">
-      <div class="mmt-day"><b>DAY 04</b><i></i>{{ d4 }}<i></i><em>7 PM EST</em></div>
+      <div class="mmt-day"><div class="mmt-day__n"><small>Day</small><b>04</b></div><i></i><div class="mmt-day__dt">{{ d4 }}<em>7 PM EST</em></div></div>
       <h3 class="mmt-title">Watch Me Trade DRT Live, Candle by Candle</h3>
     </div>
     <p class="mmt-body">I run the full DRT filter on real charts in front of you and explain every decision as it happens: what qualifies, what makes me sit on my hands, and the exact invalidation that tells me I’m wrong before it costs a penny. This is the night DRT clicks.</p>
   </div>
   <div class="mmt-night">
     <div class="mmt-when">
-      <div class="mmt-day"><b>DAY 05</b><i></i>{{ d5 }}<i></i><em>7 PM EST</em></div>
+      <div class="mmt-day"><div class="mmt-day__n"><small>Day</small><b>05</b></div><i></i><div class="mmt-day__dt">{{ d5 }}<em>7 PM EST</em></div></div>
       <h3 class="mmt-title">Your Own DRT Trading Plan, Built Live, With Me</h3>
     </div>
     <p class="mmt-body">We build your DRT plan together around your life: the sessions you can trade, the pairs and style that suit you, and the journaling routine that turns your own data into confidence. You leave with it written down, simple enough to fit on the back of a business card, and you run it Monday morning.</p>
@@ -221,12 +228,12 @@ a{color:#FFC72C;text-decoration:none} a:hover{color:#fff}
 <div style="position:relative;z-index:1">
 <div style="max-width:960px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px"><h2 style="margin:0;font:800 clamp(34px,3.5vw,52px)/1.08 'Bricolage Grotesque',sans-serif;letter-spacing:-.028em;color:#fff;text-wrap:balance">What You’ll Walk Away With <span style="color:#FFC72C">After 5 Days</span></h2></div>
 <div class="mmt-out">
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>A filter that shows you only the A+ setups</h3><p>Fifteen order blocks and FVGs on your chart, and in under a minute you know which ones have real odds behind them and which are traps. You only risk money on A+ trades from now on.</p></div>
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>Your daily bias called before the open</h3><p>You read where price is reaching before the market opens and know buy day or sell day, with a reason behind it. You’re positioned before the move instead of chasing it.</p></div>
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>The confidence to pull the trigger</h3><p>When the 3 DRT checks line up, the decision is made for you. No waiting for one more candle, no watching your own setup run without you. You click, you manage, you trust the process.</p></div>
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>Consistency you can count on</h3><p>Same process, same way, every session. Your results finally match the hours you put in, and the account grows week after week instead of green one week, red the next.</p></div>
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>Pass the prop challenge and keep the account</h3><p>A challenge is just another trading week when you only take A+ trades with defined risk. Pass it, get funded, keep it, and scale into account sizes you could never afford on your own.</p></div>
-  <div class="mmt-out__card"><span class="mmt-tick">✓</span><h3>Time and financial freedom, on your terms</h3><p>A second income around the job first. Then an income that matches it. Then, for the ones who want it, the day you hand in your notice and trade for a living, with your mornings and evenings back.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>A filter that shows you only the A+ setups</h3></div><p>Fifteen order blocks and FVGs on your chart, and in under a minute you know which ones have real odds behind them and which are traps. You only risk money on A+ trades from now on.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Your daily bias called before the open</h3></div><p>You read where price is reaching before the market opens and know buy day or sell day, with a reason behind it. You’re positioned before the move instead of chasing it.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>The confidence to pull the trigger</h3></div><p>When the 3 DRT checks line up, the decision is made for you. No waiting for one more candle, no watching your own setup run without you. You click, you manage, you trust the process.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Consistency you can count on</h3></div><p>Same process, same way, every session. Your results finally match the hours you put in, and the account grows week after week instead of green one week, red the next.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Pass the prop challenge and keep the account</h3></div><p>A challenge is just another trading week when you only take A+ trades with defined risk. Pass it, get funded, keep it, and scale into account sizes you could never afford on your own.</p></div>
+  <div class="mmt-out__card"><div class="mmt-out__hd"><span class="mmt-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Time and financial freedom, on your terms</h3></div><p>A second income around the job first. Then an income that matches it. Then, for the ones who want it, the day you hand in your notice and trade for a living, with your mornings and evenings back.</p></div>
 </div>
 </div>
 </section>
@@ -235,26 +242,13 @@ a{color:#FFC72C;text-decoration:none} a:hover{color:#fff}
 <div style="position:relative;z-index:1">
 <div style="max-width:960px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px"><h2 style="margin:0;font:800 clamp(34px,3.5vw,52px)/1.08 'Bricolage Grotesque',sans-serif;letter-spacing:-.028em;color:#fff;text-wrap:balance">Your ICT Trading <span style="color:#8E9AA6">Right Now</span> vs. <span style="color:#FFC72C">After The 5-Day Challenge</span></h2></div>
 <div class="mmt-cmp">
-  <div class="mmt-cmp__col"><h3 class="mmt-cmp__lbl">Right Now</h3>
-    <ul>
-      <li><span class="mmt-x">✕</span><span>Fifteen setups screaming at you and no way to tell which one is real</span></li>
-      <li><span class="mmt-x">✕</span><span>A new ICT model every week, back to square one every Monday</span></li>
-      <li><span class="mmt-x">✕</span><span>Guessing daily bias and finding out which way it went after the move</span></li>
-      <li><span class="mmt-x">✕</span><span>Three hours on the charts and a flat account to show for it</span></li>
-      <li><span class="mmt-x">✕</span><span>Profitable some weeks, can’t make it stick</span></li>
-      <li><span class="mmt-x">✕</span><span>Wondering if you’re just not built for this</span></li>
-    </ul>
-  </div>
-  <div class="mmt-cmp__col mmt-cmp__col--after"><h3 class="mmt-cmp__lbl mmt-cmp__lbl--after">By Friday</h3>
-    <ul>
-      <li><span class="mmt-ok">✓</span><span>One filter that tells you which ICT setup to take and which to skip, in under a minute</span></li>
-      <li><span class="mmt-ok">✓</span><span>One process you run every session, so every week builds on the last</span></li>
-      <li><span class="mmt-ok">✓</span><span>Your bias called before the open, with a reason you can say out loud</span></li>
-      <li><span class="mmt-ok">✓</span><span>One trade, 30 minutes, laptop shut, evenings back</span></li>
-      <li><span class="mmt-ok">✓</span><span>Green weeks that stack, the kind you pass a challenge with and keep</span></li>
-      <li><span class="mmt-ok">✓</span><span>A written plan in your hand and the calm of finally knowing why</span></li>
-    </ul>
-  </div>
+  <div class="mmt-cmp__row"><div><h3 class="mmt-cmp__lbl">Right Now</h3></div><span></span><div><h3 class="mmt-cmp__lbl mmt-cmp__lbl--after">By Friday</h3></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Fifteen setups screaming at you and no way to tell which one is real</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>One filter that tells you which ICT setup to take and which to skip, in under a minute</span></div></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>A new ICT model every week, back to square one every Monday</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>One process you run every session, so every week builds on the last</span></div></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Guessing daily bias and finding out which way it went after the move</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Your bias called before the open, with a reason you can say out loud</span></div></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Three hours on the charts and a flat account to show for it</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>One trade, 30 minutes, laptop shut, evenings back</span></div></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Profitable some weeks, can’t make it stick</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Green weeks that stack, the kind you pass a challenge with and keep</span></div></div></div>
+  <div class="mmt-cmp__row"><div><div class="mmt-cmp__it mmt-cmp__it--now"><span class="mmt-x"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></span><span>Wondering if you’re just not built for this</span></div></div><span class="mmt-cmp__arr"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="mmt-cmp__it"><span class="mmt-ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>A written plan in your hand and the calm of finally knowing why</span></div></div></div>
 </div>
 </div>
 </section>
