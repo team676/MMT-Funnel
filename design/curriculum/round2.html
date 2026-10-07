@@ -53,10 +53,17 @@ svg{display:block}
 .body{font:500 17.5px/1.6 var(--sans);max-width:58ch;padding-top:2px;text-wrap:pretty}
 
 /* D1: a solid gold day tag, date in white, time in grey, hairline dividers */
-.d1{display:flex;align-items:center;gap:12px;font:600 15px/1 var(--sans)}
-.d1 b{padding:7px 10px 6px;border-radius:6px;background:var(--gold);color:var(--ink);font:800 15px/1 var(--display)}
-.d1 i{width:1px;height:14px;background:rgba(255,255,255,.2)}
-.d1 em{font-style:normal;font-weight:500;color:var(--soft)}
+.d1{display:flex;align-items:center;gap:14px;font:800 18px/1 var(--display);letter-spacing:-.01em;color:#fff}
+.d1 b{padding:8px 11px 7px;border-radius:6px;background:var(--gold);color:var(--ink);font:800 18px/1 var(--display)}
+.d1 i{width:1px;height:18px;background:rgba(255,255,255,.22)}
+.d1 em{font-style:normal}
+/* 1a: date and time in the heading face, white and grey; 1b: the time in gold; 1c: date and time in one outlined chip */
+.d1.a em{color:var(--soft)}
+.d1.b em{color:var(--gold)}
+.d1.c{gap:10px}
+.d1.c span{display:inline-flex;align-items:center;gap:12px;padding:7px 12px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.18)}
+.d1.c span em{color:var(--gold)}
+.d1.c i{height:16px}
 
 /* D2: the number as the mark, date and time stacked beside it */
 .d2{display:grid;grid-template-columns:auto 1px auto;justify-content:start;align-items:center;gap:14px}
@@ -64,8 +71,12 @@ svg{display:block}
 .d2 .n small{font:600 13px/1 var(--sans);color:var(--mute)}
 .d2 .n b{font:800 38px/.9 var(--display);letter-spacing:-.03em;color:var(--gold)}
 .d2 i{height:40px;background:rgba(255,255,255,.14)}
-.d2 .dt{display:flex;flex-direction:column;gap:6px;font:700 15px/1 var(--sans)}
-.d2 .dt em{font-style:normal;font-weight:500;color:var(--soft)}
+.d2 .dt{display:flex;flex-direction:column;gap:7px;font:800 19px/1 var(--display);letter-spacing:-.01em}
+.d2 .dt em{font-style:normal;color:var(--soft)}
+.d2 .n small{font:700 14px/1 var(--display);color:var(--soft)}
+.d2 .n b{font-size:42px}
+.d2 i{height:44px}
+.d2.b .dt em{color:var(--gold)}
 
 /* D3: the day in gold over the title, the date in a bar across the card's foot (the Golden Circle day cards) */
 .night.f{padding-bottom:0;row-gap:0}
@@ -166,14 +177,20 @@ svg{display:block}
   const H5 = '<h2 class="h2">Your ICT Trading <span class="muted">Right Now</span> vs. <span class="gold">After The 5-Day Challenge</span></h2>';
 
   const night = (when, n, foot = '') => `<div class="night${foot ? ' f' : ''}"><div class="when">${when(n)}<h3 class="title">${n[2]}</h3></div><p class="body">${n[3]}</p>${foot}</div>`;
-  const rows = (when, foot) => `<div class="rows">${NIGHTS.map((n) => night(when, n, foot ? foot(n) : '')).join('')}</div>`;
+  const rows = (when, foot, k = 5) => `<div class="rows">${NIGHTS.slice(0, k).map((n) => night(when, n, foot ? foot(n) : '')).join('')}</div>`;
   const it = (mark, t, cls = '') => `<div class="it">${mark}<span class="${cls}">${t}</span></div>`;
 
   const V = [
-    ['d1', 'Day line · 1', 'Gold tag', 'The day as a solid gold tag, the date in white, the time in grey, hairline dividers. No glow, no spaced capitals.', H3,
-      rows((n) => `<div class="d1"><b>Day ${n[0]}</b><i></i>${n[1]}<i></i><em>7 PM EST</em></div>`)],
-    ['d2', 'Day line · 2', 'Number first', 'The day number is the mark, big and gold, with the date and time stacked beside it like a calendar entry.', H3,
-      rows((n) => `<div class="d2"><div class="n"><small>Day</small><b>${n[0]}</b></div><i></i><div class="dt">${n[1]}<em>7 PM EST</em></div></div>`)],
+    ['d1a', 'Day line · 1a', 'Gold tag, bigger', 'Kunal (7 Oct): the date and time a bit bigger, in a face that stands out. Now 18px in the heading face (Bricolage, was 15px Inter), the tag grown to match; the time stays grey.', H3,
+      rows((n) => `<div class="d1 a"><b>Day ${n[0]}</b><i></i>${n[1]}<i></i><em>7 PM EST</em></div>`, null, 2)],
+    ['d1b', 'Day line · 1b', 'Gold tag, gold time', 'The same, with the time in gold like the tag, so the line reads tag, date, time in two colours.', H3,
+      rows((n) => `<div class="d1 b"><b>Day ${n[0]}</b><i></i>${n[1]}<i></i><em>7 PM EST</em></div>`, null, 2)],
+    ['d1c', 'Day line · 1c', 'Gold tag and date chip', 'The gold tag, then the date and the time together in one outlined chip of the same height, the time in gold.', H3,
+      rows((n) => `<div class="d1 c"><b>Day ${n[0]}</b><span>${n[1]}<i></i><em>7 PM EST</em></span></div>`, null, 2)],
+    ['d2a', 'Day line · 2a', 'Number first, bigger', 'The same date and time treatment: 19px in the heading face (was 15px Inter), the number a touch bigger to match; the time stays grey.', H3,
+      rows((n) => `<div class="d2"><div class="n"><small>Day</small><b>${n[0]}</b></div><i></i><div class="dt">${n[1]}<em>7 PM EST</em></div></div>`, null, 2)],
+    ['d2b', 'Day line · 2b', 'Number first, gold time', 'The same, with the time in gold, echoing the number.', H3,
+      rows((n) => `<div class="d2 b"><div class="n"><small>Day</small><b>${n[0]}</b></div><i></i><div class="dt">${n[1]}<em>7 PM EST</em></div></div>`, null, 2)],
     ['d3', 'Day line · 3', 'Date in the foot', 'The day in plain gold over the title; the date and time move to a bar across the card’s foot, as on the Golden Circle’s day cards.', H3,
       rows((n) => `<div class="d3">Day ${n[0]}</div>`, (n) => `<div class="foot">${n[1]}<i></i><em>7 PM EST</em></div>`)],
     ['o1', 'Section 4 · 1', 'Two across, levelled', 'The same grid, flat: a drawn check beside each head, heads levelled across each row, the text from the card’s left edge. No glow, no lift on hover.', H4,
