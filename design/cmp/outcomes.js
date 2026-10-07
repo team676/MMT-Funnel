@@ -13,6 +13,9 @@
     ['o5', 'The current rows, quieter', `<div class="o5">${OUT.map(([h, p], i) => `<div class="r">${no(i)}<h3>${h}</h3><p>${p}</p></div>`).join('')}</div>`],
     ['o6', 'One panel, two columns of three', `<div class="o6">${OUT.map(([h, p], i) => `<div class="c">${no(i)}<h3>${h}</h3><p>${p}</p></div>`).join('')}</div>`],
   ];
+  // Out (Kunal, 7 Oct 2026): 2 Two across, 4 Three across, 5 Ivory cards, 7 One panel.
+  const DROP = ['o1', 'o3', 'o4', 'o6'];
+  for (let i = V.length - 1; i >= 0; i--) if (DROP.includes(V[i][0])) V.splice(i, 1);
   const CHEV = (d) => `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const KEY = 'mmt-out-v';
   let k = 0;
