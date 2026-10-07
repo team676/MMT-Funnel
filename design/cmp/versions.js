@@ -64,7 +64,7 @@
         <div class="cmpv-pill"><span><b>${k + 1} / ${ALL.length}</b>${label(k) === 'Current' ? '' : '#' + label(k) + ' · '}${name}</span></div>
         <h2>Your ICT Trading <span class="r">Right Now</span> vs. <span class="g">After The 5-Day Challenge</span></h2>
         ${grid}
-        <div class="cta"><a class="btn" href="#">Join the 5 Day Challenge</a><small>Sixty minutes a night.</small></div>
+        <div class="mmt-cta-block"><a class="mmt-cta mmt-cta--css" href="#"><span style="position:relative">Join the 5 Day Challenge</span></a><div class="mmt-cta-note">Sixty minutes a night.</div></div>
       </div></div>`;
     root.querySelector('.cmpv-arrow--prev').onclick = () => go(root, -1);
     root.querySelector('.cmpv-arrow--next').onclick = () => go(root, 1);
