@@ -178,3 +178,12 @@
 .cmpv .st-r .b{font:500 17px/1.5 var(--sans);color:#fff;text-wrap:pretty}
 .cmpv .st-r .ar{color:var(--gold)}
 .cmpv .st-r .ar svg{width:100%;height:12px;display:block}
+
+/* Read by people 35 and up (Kunal, 7 Oct 2026: "make this part more mature"): bigger items, firmer contrast on the Right Now
+   side (no faint grey), larger marks, more room per row. */
+.cmpv .it{font-size:18px;line-height:1.5;padding-top:15px;padding-bottom:15px}
+.cmpv .lbl{font-size:32px}
+.cmpv .mk{width:28px;height:28px}
+.cmpv .v1 .now .it,.cmpv .v2 .now .it,.cmpv .v4 .now .it,.cmpv .v9 .now .it,.cmpv .v10 .now .it{color:#C3CCD5}
+.cmpv .v8 .now .it{color:#BAC4CE}
+.cmpv .v8 .now .mk{color:#8E9AA6}
