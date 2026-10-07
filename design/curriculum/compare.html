@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare · 3 calmer versions</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<style>
+/* Section 5, Kunal 7 Oct 2026: "love this but … a bit gimmicky and not professional … keep it like this … 3 versions".
+   Same layout as the page (heading, two cards with item n level across both, one screen, the button), with the loud parts
+   gone: no gold-filled card, no highlighter box on the heading, no blue-ringed VS, one accent colour. */
+:root{--gold:#FFC72C;--display:'Bricolage Grotesque',system-ui,sans-serif;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#05070A;color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased}
+h2,h3,p{margin:0}
+.rv{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:12px 24px;background:rgba(5,7,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.rv span{font:700 14px/1 var(--sans);color:#8E9AA6}
+.rv a{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.09);color:#fff;text-decoration:none;font:600 13px/1 var(--sans)}
+.rv a b{color:var(--gold);margin-right:6px}
+.note{max-width:1400px;margin:0 auto;display:flex;gap:12px;align-items:baseline;font:500 15px/1.4 var(--sans);color:#A3AEB9}
+.note b{flex:none;padding:7px 11px;border-radius:6px;background:var(--gold);color:#141005;font:800 14px/1 var(--display)}
+
+/* the layout, as on the page */
+.vsec{min-height:calc(100vh - 57px);display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,3vh,30px);padding:clamp(20px,3.6vh,44px) 24px;background:#070A10;border-bottom:1px solid rgba(255,255,255,.08)}
+.vsec h2{margin:0 auto;max-width:1400px;text-align:center;font:800 clamp(28px,min(3.4vw,5.6vh),56px)/1.1 var(--display);letter-spacing:-.03em;text-wrap:balance}
+.vs{position:relative;width:100%;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto repeat(6,auto);column-gap:var(--gap,44px)}
+.card{display:grid;grid-row:1/span 7;grid-template-rows:subgrid;row-gap:0;padding:clamp(18px,3vh,34px) clamp(28px,3vw,44px);border-radius:18px}
+.lbl{margin:0 0 clamp(6px,1.2vh,12px);padding-bottom:clamp(10px,1.5vh,14px);font:800 clamp(24px,3.4vh,32px)/1 var(--display);letter-spacing:-.025em;border-bottom:1px solid}
+.it{display:flex;gap:16px;align-items:center;padding:clamp(9px,1.45vh,15px) 2px;border-bottom:1px solid;font:500 clamp(15px,min(1.3vw,2.05vh),18px)/1.42 var(--sans);text-wrap:pretty}
+.it:last-child{border-bottom:0}
+.mk{flex:none;width:26px;height:26px;border-radius:7px;display:grid;place-items:center}
+.mk svg{width:58%;height:58%;display:block}
+.cta{display:flex;flex-direction:column;align-items:center;gap:10px}
+.btn{width:min(480px,100%);display:flex;align-items:center;justify-content:center;background:#57B6F2;color:#03101C;font:800 21px/1 var(--display);letter-spacing:.045em;text-transform:uppercase;padding:21px 36px;border-radius:8px;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 3px 0 #2C82BD,0 12px 28px -16px rgba(0,0,0,.9)}
+.cta small{font:400 15px/1 var(--sans);color:#9AA6B2}
+
+/* 1 · Slate and ivory: Right Now in the day cards' slate, By Friday on ivory; gold is the only accent */
+.v1 h2 .r{color:#E8737A}.v1 h2 .g{color:var(--gold)}
+.v1 .now{background:#0E141B;border:1px solid rgba(255,255,255,.08)}
+.v1 .now .lbl{color:#E8737A;border-color:rgba(232,115,122,.45)}
+.v1 .now .it{color:#A3AEB9;border-color:rgba(255,255,255,.07)}
+.v1 .now .mk{background:rgba(232,115,122,.12);color:#E8737A}
+.v1 .fri{background:#F6F2E8}
+.v1 .fri .lbl{color:#0B0D11;border-color:#C9A33A}
+.v1 .fri .it{color:#12151A;font-weight:600;border-color:rgba(11,13,17,.1)}
+.v1 .fri .mk{background:var(--gold);color:#141005}
+
+/* 2 · All dark, gold frame: both cards in the page's dark, By Friday lifted by a gold hairline and a faint gold wash */
+.v2 h2 .r{color:#E8737A}.v2 h2 .g{color:var(--gold)}
+.v2 .now{background:#0B0F15;border:1px solid rgba(255,255,255,.08)}
+.v2 .now .lbl{color:#E8737A;border-color:rgba(255,255,255,.1)}
+.v2 .now .it{color:#98A3AE;border-color:rgba(255,255,255,.06)}
+.v2 .now .mk{background:rgba(232,115,122,.12);color:#E8737A}
+.v2 .fri{background:linear-gradient(180deg,rgba(255,199,44,.07),rgba(255,199,44,.015) 60%),#0E141B;border:1px solid rgba(255,199,44,.5)}
+.v2 .fri .lbl{color:var(--gold);border-color:rgba(255,199,44,.3)}
+.v2 .fri .it{color:#fff;border-color:rgba(255,255,255,.07)}
+.v2 .fri .mk{background:var(--gold);color:#141005}
+.v2 .vsb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#070A10;border:1px solid rgba(255,255,255,.14);font:700 16px/1 var(--display);color:#8E9AA6}
+
+/* 3 · Paper: two light cards like a printed comparison, cool grey against white, navy text, gold ticks */
+.v3 h2 .r{color:#E8737A}.v3 h2 .g{color:var(--gold)}
+.v3 .vs{--gap:20px}
+.v3 .now{background:#E7EAEE}
+.v3 .now .lbl{color:#B8333E;border-color:rgba(11,18,32,.14)}
+.v3 .now .it{color:#4A525C;border-color:rgba(11,18,32,.09)}
+.v3 .now .mk{background:rgba(184,51,62,.1);color:#B8333E}
+.v3 .fri{background:#fff;box-shadow:0 0 0 1px rgba(11,18,32,.06)}
+.v3 .fri .lbl{color:#0B1B33;border-color:var(--gold);border-bottom-width:2px}
+.v3 .fri .it{color:#0B1220;font-weight:600;border-color:rgba(11,18,32,.08)}
+.v3 .fri .mk{background:#0B1B33;color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="rv"><span>Section 5 · 3 calmer versions</span><a href="#v1"><b>1</b>Slate and ivory</a><a href="#v2"><b>2</b>All dark, gold frame</a><a href="#v3"><b>3</b>Paper</a></div>
+<main data-root></main>
+<script>
+(() => {
+  const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 8.5l3 3 6.2-6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CROSS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  const NOW = ['Fifteen setups screaming at you and no way to tell which one is real', 'A new ICT model every week, back to square one every Monday', 'Guessing daily bias and finding out which way it went after the move', 'Three hours on the charts and a flat account to show for it', 'Profitable some weeks, can’t make it stick', 'Wondering if you’re just not built for this'];
+  const FRI = ['One filter that tells you which ICT setup to take and which to skip, in under a minute', 'One process you run every session, so every week builds on the last', 'Your bias called before the open, with a reason you can say out loud', 'One trade, 30 minutes, laptop shut, evenings back', 'Green weeks that stack, the kind you pass a challenge with and keep', 'A written plan in your hand and the calm of finally knowing why'];
+  const V = [
+    ['v1', 'Slate and ivory', 'Right Now sits back in the day cards’ slate; By Friday is the bright card, on ivory instead of gold fill. Gold is the only accent: the ticks and the heading. No VS badge, no highlighter box.', ''],
+    ['v2', 'All dark, gold frame', 'Both cards in the page’s own dark. By Friday is set apart by a gold hairline and a faint gold wash, white text and gold ticks. A quiet vs in a hairline circle.', '<div class="vsb" aria-hidden="true">vs</div>'],
+    ['v3', 'Paper', 'Two light cards side by side like a printed comparison: cool grey for Right Now, white for By Friday, navy type, gold ticks in navy squares. The most report-like.', ''],
+  ];
+  const item = (mk, t) => `<div class="it"><span class="mk">${mk}</span><span>${t}</span></div>`;
+  document.querySelector('[data-root]').innerHTML = V.map(([id, name, note, badge], k) => `<section class="vsec ${id}" id="${id}">
+    <div class="note"><b>${k + 1}</b><span><strong style="color:#fff">${name}.</strong> ${note}</span></div>
+    <h2>Your ICT Trading <span class="r">Right Now</span> vs. <span class="g">After The 5-Day Challenge</span></h2>
+    <div class="vs">
+      <div class="card now"><h3 class="lbl">Right Now</h3>${NOW.map((t) => item(CROSS, t)).join('')}</div>
+      <div class="card fri"><h3 class="lbl">By Friday</h3>${FRI.map((t) => item(CHECK, t)).join('')}</div>
+      ${badge}
+    </div>
+    <div class="cta"><a class="btn" href="#">Join the 5 Day Challenge</a><small>Sixty minutes a night.</small></div>
+  </section>`).join('');
+})();
+</script>
+</body>
+</html>
